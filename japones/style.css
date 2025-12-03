@@ -1,0 +1,91 @@
+/* GERAL */
+:root {
+    --bg-black: #050505;
+    --bg-card: #121212;
+    --gold: #D4AF37;
+    --gold-light: #F2C94C;
+    --text-white: #ffffff;
+    --text-gray: #a8a8a8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
+body { background-color: var(--bg-black); color: var(--text-white); overflow-x: hidden; }
+
+.container { width: 90%; max-width: 600px; margin: 0 auto; } /* Focado em Mobile/Tablet */
+.text-center { text-align: center; }
+img { max-width: 100%; display: block; }
+
+/* TEXTOS DOURADOS */
+.gold-gradient-text {
+    background: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+.gold-text { color: var(--gold); }
+
+/* HERO */
+.hero { padding: 40px 0; background-image: radial-gradient(circle at center, #1a1a1a 0%, #050505 70%); }
+.tag-gold { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px; display: block; }
+.hero h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px; }
+.hero-sub { color: var(--text-gray); font-size: 1rem; line-height: 1.5; margin-bottom: 30px; }
+
+/* VÍDEO MOCKUP */
+.video-wrapper { padding: 5px; border: 1px solid #333; border-radius: 12px; background: #111; margin-bottom: 30px; }
+.video-cover {
+    background: #000; height: 200px; border-radius: 8px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 1px solid #222;
+}
+.play-button { font-size: 30px; color: var(--gold); border: 2px solid var(--gold); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+
+/* BOTÕES */
+.btn-gold {
+    background: linear-gradient(to right, #F2C94C, #D4AF37);
+    color: #000; font-weight: 800; padding: 18px 30px; border-radius: 8px;
+    text-decoration: none; display: block; width: 100%; text-align: center;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    text-transform: uppercase; letter-spacing: 1px;
+}
+.pulse { animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212,175,55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212,175,55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212,175,55, 0); } }
+
+.security-badges { font-size: 0.8rem; color: #666; margin-top: 15px; }
+
+/* CARDS (DORES) */
+.pain-section { padding: 40px 0; }
+.dark-card {
+    background: var(--bg-card); border: 1px solid #222; border-radius: 16px;
+    padding: 25px; margin-bottom: 20px; display: flex; gap: 15px;
+}
+.check-icon { color: var(--gold); background: #1a1a1a; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; border: 1px solid #333; }
+.card-text h3 { font-size: 1.1rem; margin-bottom: 5px; color: #fff; }
+.card-text p { font-size: 0.9rem; color: var(--text-gray); }
+
+/* ESPECIALISTA */
+.expert-section { padding: 40px 0; background: #080808; }
+.section-title { font-size: 1.8rem; margin-bottom: 30px; }
+.profile-pic { border-radius: 12px; border-bottom: 4px solid var(--gold); margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.expert-text p { margin-bottom: 15px; line-height: 1.6; color: var(--text-gray); }
+.expert-text strong { color: #fff; }
+
+/* OFERTA */
+.offer-section { padding: 50px 0; }
+.offer-card {
+    background: #fffdf5; /* Cor clara levemente creme igual print */
+    color: #000; border-radius: 20px; padding: 30px 20px; text-align: center;
+    border: 1px solid var(--gold);
+}
+.offer-header { font-weight: 700; text-transform: uppercase; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; }
+.old-price { text-decoration: line-through; color: #888; font-size: 1rem; }
+.big-price { font-size: 3.5rem; font-weight: 800; color: var(--gold); line-height: 1; margin: 10px 0; text-shadow: 1px 1px 0px rgba(0,0,0,0.1); }
+.cash-price { font-weight: 600; color: #444; margin-bottom: 25px; }
+.guarantee-badge { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; font-size: 0.8rem; font-weight: 600; }
+
+/* FAQ */
+.faq-section { padding: 40px 0; }
+.faq-item { background: var(--bg-card); border-bottom: 1px solid #333; margin-bottom: 10px; border-radius: 8px; }
+summary { padding: 20px; font-weight: 600; cursor: pointer; list-style: none; position: relative; }
+summary::after { content: '+'; position: absolute; right: 20px; color: var(--gold); font-size: 1.5rem; }
+details[open] summary::after { content: '-'; }
+details p { padding: 0 20px 20px 20px; color: var(--text-gray); line-height: 1.5; }
