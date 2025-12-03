@@ -9,7 +9,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* CONFIGURAÇÕES GERAIS - PRETO E DOURADO */
+        /* --- ESTILO GERAL DARK PREMIUM --- */
         :root {
             --bg-black: #050505;
             --bg-card: #121212;
@@ -27,16 +27,16 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 20px 0; }
         .text-center { text-align: center; }
 
-        /* TEXTOS */
+        /* TIPOGRAFIA */
         h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 20px; color: #fff; }
+        h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }
         .gold-gradient-text {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
-        .gold-text { color: var(--gold); }
-        .tag { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 15px; }
+        .gold-text { color: var(--gold); font-weight: bold; }
         .sub-text { color: var(--text-gray); line-height: 1.6; margin-bottom: 30px; font-size: 1rem; }
 
         /* BOTÃO DOURADO */
@@ -48,7 +48,7 @@
             animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-        
+
         /* VIDEO */
         .video-box {
             position: relative; width: 100%; aspect-ratio: 16/9;
@@ -57,88 +57,133 @@
         }
         .play-icon { font-size: 40px; color: var(--gold); }
 
-        /* CARDS ESCUROS */
-        .card {
-            background: var(--bg-card); border: 1px solid #222; border-radius: 16px;
-            padding: 20px; margin-bottom: 15px; display: flex; gap: 15px; align-items: flex-start;
+        /* --- CARROSSEL DE DEPOIMENTOS (NOVO!) --- */
+        .carousel-container {
+            margin: 40px 0;
         }
-        .check { color: #000; background: var(--gold); width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
-        
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 15px;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch; /* Suavidade no iPhone */
+        }
+        .carousel-item {
+            flex: 0 0 85%; /* Ocupa 85% da tela para mostrar que tem mais ao lado */
+            scroll-snap-align: center;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .carousel::-webkit-scrollbar { height: 5px; }
+        .carousel::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* LISTA DE BENEFÍCIOS (TIPO CHECKLIST) */
+        .modules-box {
+            background: var(--bg-card); border: 1px solid #333; border-radius: 20px;
+            padding: 30px 20px; margin: 40px 0;
+        }
+        .module-item { display: flex; gap: 15px; margin-bottom: 20px; text-align: left; }
+        .check-gold { color: var(--gold); font-size: 1.2rem; min-width: 25px; }
+
+        /* BÔNUS */
+        .bonus-card {
+            background: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+            border: 1px solid var(--gold); border-radius: 16px; padding: 25px;
+            text-align: center; margin-top: 30px;
+        }
+
         /* ESPECIALISTA */
         .expert-area { margin: 50px 0; }
         .expert-img { border-bottom: 4px solid var(--gold); margin-bottom: 20px; }
-        
+
         /* OFERTA */
         .offer-box {
             background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px;
             text-align: center; border: 1px solid var(--gold); margin-top: 40px;
         }
         .price-big { font-size: 3.5rem; font-weight: 800; color: #D4AF37; margin: 10px 0; }
-        
+
         /* FAQ */
         details { background: #111; margin-bottom: 10px; padding: 15px; border-radius: 8px; border: 1px solid #333; }
         summary { color: #fff; font-weight: 600; cursor: pointer; list-style: none; }
         summary::after { content: '+'; float: right; color: var(--gold); }
-        details p { margin-top: 10px; color: #aaa; line-height: 1.5; }
-        
         footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
 
     <div class="container">
+        
         <header class="text-center">
-            <span class="tag" data-aos="fade-down">MÉTODO PARA BRASILEIROS</span>
-            <h1 data-aos="fade-up">NÃO ACEITE MENOS QUE <span class="gold-gradient-text">O TOPO NO JAPÃO!</span></h1>
-            <p class="sub-text" data-aos="fade-up">Saia da fábrica, compre seu carro dos sonhos e tenha liberdade falando Japonês sem precisar decorar Kanji agora.</p>
+            <span style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; font-weight:700;">MÉTODO VALIDADO NO JAPÃO</span>
+            <h1 data-aos="fade-up">NÃO ACEITE MENOS QUE <span class="gold-gradient-text">O TOPO!</span></h1>
+            <p class="sub-text" data-aos="fade-up">Saia da fábrica, conquiste o carro dos sonhos e tenha liberdade falando Japonês sem precisar decorar Kanji agora.</p>
         </header>
 
         <div class="video-box" data-aos="zoom-in">
             <div class="text-center">
                 <div class="play-icon">▶</div>
-                <p style="color:#fff; margin-top:10px; font-size:0.9rem;">ASSISTA AO VÍDEO</p>
+                <p style="color:#fff; margin-top:10px;">ASSISTA AO VÍDEO</p>
             </div>
         </div>
 
         <div data-aos="fade-up">
             <a href="#oferta" class="btn-gold">QUERO COMEÇAR AGORA</a>
-            <p style="text-align:center; font-size:0.8rem; color:#666;">🔒 Compra 100% Segura | Acesso Imediato</p>
+            <p style="text-align:center; font-size:0.8rem; color:#666;">🔒 Compra 100% Segura</p>
         </div>
 
-        <div style="margin-top: 40px;">
-            <div class="card" data-aos="fade-up">
-                <div class="check">✓</div>
-                <div>
-                    <h3 style="color:#fff; font-size:1.1rem; margin-bottom:5px;">Quer sair da fábrica?</h3>
-                    <p style="color:#aaa; font-size:0.9rem;">Chega de trabalho pesado. Foque em cargos que exigem japonês e pagam o dobro.</p>
+        <div class="carousel-container" data-aos="fade-up">
+            <h2 class="text-center">Resultados de quem aplica:</h2>
+            <p class="text-center sub-text">Arraste para o lado para ver ➜</p>
+            
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="print1.jpg" alt="Resultado Aluno" onerror="this.src='https://via.placeholder.com/300x500/222/D4AF37?text=Print+de+Resultado+1'">
+                </div>
+                <div class="carousel-item">
+                     <img src="print2.jpg" alt="Resultado Aluno" onerror="this.src='https://via.placeholder.com/300x500/222/D4AF37?text=Print+de+Resultado+2'">
+                </div>
+                <div class="carousel-item">
+                     <img src="print3.jpg" alt="Resultado Aluno" onerror="this.src='https://via.placeholder.com/300x500/222/D4AF37?text=Print+de+Resultado+3'">
                 </div>
             </div>
-            <div class="card" data-aos="fade-up">
-                <div class="check">✓</div>
-                <div>
-                    <h3 style="color:#fff; font-size:1.1rem; margin-bottom:5px;">Trava na escrita?</h3>
-                    <p style="color:#aaa; font-size:0.9rem;">O método tradicional te obriga a desenhar Kanji. Aqui você foca na FALA e AUDIÇÃO primeiro.</p>
-                </div>
+        </div>
+
+        <div class="modules-box" data-aos="fade-up">
+            <h2 class="text-center" style="margin-bottom:30px;">O que você recebe:</h2>
+            
+            <div class="module-item">
+                <div class="check-gold">✓</div>
+                <div><strong>+100 Aulas Práticas</strong><br><span style="color:#888; font-size:0.9rem;">Do zero absoluto até a conversação no trabalho.</span></div>
             </div>
-            <div class="card" data-aos="fade-up">
-                <div class="check">✓</div>
-                <div>
-                    <h3 style="color:#fff; font-size:1.1rem; margin-bottom:5px;">Depende de tradutor?</h3>
-                    <p style="color:#aaa; font-size:0.9rem;">Resolva sozinho seus problemas no banco, prefeitura e concessionária.</p>
-                </div>
+            
+            <div class="module-item">
+                <div class="check-gold">✓</div>
+                <div><strong>Método Romanizado</strong><br><span style="color:#888; font-size:0.9rem;">Acelerador de fluência sem Kanji inicial.</span></div>
+            </div>
+
+            <div class="module-item">
+                <div class="check-gold">✓</div>
+                <div><strong>Suporte no WhatsApp</strong><br><span style="color:#888; font-size:0.9rem;">Tire dúvidas diretamente comigo todos os dias.</span></div>
             </div>
         </div>
 
         <div class="expert-area">
             <div class="expert-img" data-aos="fade-right">
-                
                 <img src="IMG_6303.jpeg" alt="Especialista" onerror="this.onerror=null; this.src='IMG_6303.JPG';">
-                
             </div>
             <div data-aos="fade-left">
-                <h2 style="color:#fff; margin-bottom:15px;">Resultados Reais</h2>
+                <h2 style="color:#fff;">Prazer, seu mentor</h2>
                 <p class="sub-text">Moro no Japão assim como você. Criei o <strong>Método Romanizado</strong> para cortar caminho e colocar dinheiro no seu bolso através do idioma, sem perder anos estudando escrita.</p>
             </div>
+        </div>
+
+        <div class="bonus-card" data-aos="zoom-in">
+            <p style="color:var(--gold); font-weight:bold; letter-spacing:1px;">🎁 BÔNUS EXCLUSIVO</p>
+            <h3 style="color:#fff; margin:15px 0;">Acompanhamento Individual</h3>
+            <p style="color:#aaa; font-size:0.9rem;">Você não será abandonado com aulas gravadas. Terá acesso ao meu suporte pessoal para destravar sua fala.</p>
         </div>
 
         <div id="oferta" class="offer-box" data-aos="flip-up">
