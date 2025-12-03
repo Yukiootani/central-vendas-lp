@@ -51,7 +51,7 @@
             background: var(--gold-gradient);
             color: #000; font-weight: 800; padding: 18px; border-radius: 50px;
             display: block; width: 100%; text-align: center; text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 20px auto; /* 'auto' ajuda a centralizar se não for 100% */
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 20px auto;
             animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
@@ -61,6 +61,7 @@
             position: relative; width: 100%; aspect-ratio: 16/9;
             background: #000; border: 1px solid #333; border-radius: 12px;
             display: flex; align-items: center; justify-content: center; margin-bottom: 30px;
+            overflow: hidden; /* Garante que o vídeo não vase */
         }
         .play-icon { font-size: 40px; color: var(--gold); }
 
@@ -126,11 +127,17 @@
             <p class="sub-text" data-aos="fade-up">Saia da fábrica, conquiste o carro dos sonhos e tenha liberdade falando Japonês sem precisar decorar Kanji agora.</p>
         </header>
 
-        <div class="video-box" data-aos="zoom-in">
-            <div class="text-center">
-                <div class="play-icon">▶</div>
-                <p style="color:#fff; margin-top:10px;">ASSISTA AO VÍDEO</p>
-            </div>
+        <div class="video-box" data-aos="zoom-in" style="padding:0; border:none; background:transparent;">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/FUsOfzRAon0?rel=0&controls=1&modestbranding=1" 
+                title="Vídeo de Vendas" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; border: 1px solid #333;">
+            </iframe>
         </div>
 
         <div data-aos="fade-up" class="text-center">
@@ -143,10 +150,10 @@
             <p class="text-center sub-text" style="font-size:0.8rem;">Deslize para ver os prints ➜</p>
             
             <div class="carousel">
-                <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1"></div>
-                <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2"></div>
-                <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3"></div>
-                <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4"></div>
+                <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
+                <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
+                <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
+                <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
             </div>
         </div>
 
