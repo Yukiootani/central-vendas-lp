@@ -9,231 +9,174 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* GERAL */
+        /* CONFIGURAÇÕES GERAIS - PRETO E DOURADO */
         :root {
             --bg-black: #050505;
             --bg-card: #121212;
             --gold: #D4AF37;
-            --gold-light: #F2C94C;
+            --gold-gradient: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
             --text-white: #ffffff;
             --text-gray: #a8a8a8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
         body { background-color: var(--bg-black); color: var(--text-white); overflow-x: hidden; }
-
-        .container { width: 90%; max-width: 600px; margin: 0 auto; } /* Focado em Mobile/Tablet */
-        .text-center { text-align: center; }
-        img { max-width: 100%; display: block; }
+        img { max-width: 100%; display: block; border-radius: 8px; }
         a { text-decoration: none; }
+        
+        .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 20px 0; }
+        .text-center { text-align: center; }
 
-        /* TEXTOS DOURADOS */
+        /* TEXTOS */
+        h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 20px; color: #fff; }
         .gold-gradient-text {
-            background: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
         .gold-text { color: var(--gold); }
+        .tag { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 15px; }
+        .sub-text { color: var(--text-gray); line-height: 1.6; margin-bottom: 30px; font-size: 1rem; }
 
-        /* HERO */
-        .hero { padding: 40px 0; background-image: radial-gradient(circle at center, #1a1a1a 0%, #050505 70%); }
-        .tag-gold { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px; display: block; text-transform: uppercase; }
-        .hero h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px; color: #fff; }
-        .hero-sub { color: var(--text-gray); font-size: 1rem; line-height: 1.5; margin-bottom: 30px; }
-
-        /* VÍDEO MOCKUP */
-        .video-wrapper { padding: 5px; border: 1px solid #333; border-radius: 12px; background: #111; margin-bottom: 30px; }
-        .video-cover {
-            background: #000; height: 200px; border-radius: 8px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border: 1px solid #222;
-        }
-        .play-button { font-size: 30px; color: var(--gold); border: 2px solid var(--gold); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-
-        /* BOTÕES */
+        /* BOTÃO DOURADO */
         .btn-gold {
-            background: linear-gradient(to right, #F2C94C, #D4AF37);
-            color: #000; font-weight: 800; padding: 18px 30px; border-radius: 8px;
-            text-decoration: none; display: block; width: 100%; text-align: center;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-            text-transform: uppercase; letter-spacing: 1px; margin-top: 20px;
+            background: var(--gold-gradient);
+            color: #000; font-weight: 800; padding: 18px; border-radius: 50px;
+            display: block; width: 100%; text-align: center; text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 20px 0;
+            animation: pulse 2s infinite;
         }
-        .pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212,175,55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212,175,55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212,175,55, 0); } }
-
-        .security-badges { font-size: 0.8rem; color: #666; margin-top: 15px; text-align: center; }
-
-        /* CARDS (DORES) */
-        .pain-section { padding: 40px 0; }
-        .dark-card {
-            background: var(--bg-card); border: 1px solid #222; border-radius: 16px;
-            padding: 25px; margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start;
-        }
-        .check-icon { color: var(--gold); background: #1a1a1a; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; border: 1px solid #333; }
-        .card-text h3 { font-size: 1.1rem; margin-bottom: 5px; color: #fff; }
-        .card-text p { font-size: 0.9rem; color: var(--text-gray); }
-
-        /* ESPECIALISTA */
-        .expert-section { padding: 40px 0; background: #080808; }
-        .section-title { font-size: 1.8rem; margin-bottom: 30px; color: #fff; }
-        .profile-pic { border-radius: 12px; border-bottom: 4px solid var(--gold); margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; }
-        .expert-text p { margin-bottom: 15px; line-height: 1.6; color: var(--text-gray); }
-        .expert-text strong { color: #fff; }
-
-        /* OFERTA */
-        .offer-section { padding: 50px 0; }
-        .offer-card {
-            background: #fffdf5; /* Cor clara levemente creme igual print */
-            color: #000; border-radius: 20px; padding: 30px 20px; text-align: center;
-            border: 1px solid var(--gold);
-        }
-        .offer-header { font-weight: 700; text-transform: uppercase; margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; color: #000; }
-        .old-price { text-decoration: line-through; color: #888; font-size: 1rem; }
-        .big-price { font-size: 3.5rem; font-weight: 800; color: var(--gold); line-height: 1; margin: 10px 0; text-shadow: 1px 1px 0px rgba(0,0,0,0.1); }
-        .cash-price { font-weight: 600; color: #444; margin-bottom: 25px; }
-        .guarantee-badge { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; font-size: 0.8rem; font-weight: 600; color: #333; }
-
-        /* FAQ */
-        .faq-section { padding: 40px 0; }
-        .faq-item { background: var(--bg-card); border-bottom: 1px solid #333; margin-bottom: 10px; border-radius: 8px; }
-        summary { padding: 20px; font-weight: 600; cursor: pointer; list-style: none; position: relative; color: #fff; }
-        summary::after { content: '+'; position: absolute; right: 20px; color: var(--gold); font-size: 1.5rem; }
-        details[open] summary::after { content: '-'; }
-        details p { padding: 0 20px 20px 20px; color: var(--text-gray); line-height: 1.5; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
         
-        footer { padding: 40px 0; border-top: 1px solid #222; margin-top: 40px; }
+        /* VIDEO */
+        .video-box {
+            position: relative; width: 100%; aspect-ratio: 16/9;
+            background: #000; border: 1px solid #333; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 30px;
+        }
+        .play-icon { font-size: 40px; color: var(--gold); }
+
+        /* CARDS ESCUROS */
+        .card {
+            background: var(--bg-card); border: 1px solid #222; border-radius: 16px;
+            padding: 20px; margin-bottom: 15px; display: flex; gap: 15px; align-items: flex-start;
+        }
+        .check { color: #000; background: var(--gold); width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+        
+        /* ESPECIALISTA */
+        .expert-area { margin: 50px 0; }
+        .expert-img { border-bottom: 4px solid var(--gold); margin-bottom: 20px; }
+        
+        /* OFERTA */
+        .offer-box {
+            background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px;
+            text-align: center; border: 1px solid var(--gold); margin-top: 40px;
+        }
+        .price-big { font-size: 3.5rem; font-weight: 800; color: #D4AF37; margin: 10px 0; }
+        
+        /* FAQ */
+        details { background: #111; margin-bottom: 10px; padding: 15px; border-radius: 8px; border: 1px solid #333; }
+        summary { color: #fff; font-weight: 600; cursor: pointer; list-style: none; }
+        summary::after { content: '+'; float: right; color: var(--gold); }
+        details p { margin-top: 10px; color: #aaa; line-height: 1.5; }
+        
+        footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container text-center">
-            <span class="tag-gold" data-aos="fade-down">MÉTODO 100% PARA BRASILEIROS NO JAPÃO</span>
-            
-            <h1 data-aos="fade-up">NÃO ACEITE MENOS QUE <br><span class="gold-gradient-text">O TOPO NO JAPÃO!</span></h1>
-            
-            <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">
-                Aprenda o passo a passo para SAIR DO ZERO e conquistar a liberdade de <strong>comprar o carro dos sonhos</strong> e ter os <strong>melhores empregos</strong>. Tudo isso de forma SEGURA, sem precisar decorar milhares de Kanjis agora.
-            </p>
-            
-            <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="200">
-                <div class="video-cover">
-                    <div class="play-button">▶</div>
-                    <p style="color: #fff; margin-top: 10px;">ASSISTA AO VÍDEO</p>
+    <div class="container">
+        <header class="text-center">
+            <span class="tag" data-aos="fade-down">MÉTODO PARA BRASILEIROS</span>
+            <h1 data-aos="fade-up">NÃO ACEITE MENOS QUE <span class="gold-gradient-text">O TOPO NO JAPÃO!</span></h1>
+            <p class="sub-text" data-aos="fade-up">Saia da fábrica, compre seu carro dos sonhos e tenha liberdade falando Japonês sem precisar decorar Kanji agora.</p>
+        </header>
+
+        <div class="video-box" data-aos="zoom-in">
+            <div class="text-center">
+                <div class="play-icon">▶</div>
+                <p style="color:#fff; margin-top:10px; font-size:0.9rem;">ASSISTA AO VÍDEO</p>
+            </div>
+        </div>
+
+        <div data-aos="fade-up">
+            <a href="#oferta" class="btn-gold">QUERO COMEÇAR AGORA</a>
+            <p style="text-align:center; font-size:0.8rem; color:#666;">🔒 Compra 100% Segura | Acesso Imediato</p>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <div class="card" data-aos="fade-up">
+                <div class="check">✓</div>
+                <div>
+                    <h3 style="color:#fff; font-size:1.1rem; margin-bottom:5px;">Quer sair da fábrica?</h3>
+                    <p style="color:#aaa; font-size:0.9rem;">Chega de trabalho pesado. Foque em cargos que exigem japonês e pagam o dobro.</p>
                 </div>
             </div>
-
-            <div class="cta-container" data-aos="fade-up">
-                <a href="#oferta" class="btn-gold pulse">QUERO COMEÇAR AGORA</a>
-                <div class="security-badges">
-                    <span>🔒 Compra 100% Segura</span> | <span>💳 Acesso Imediato</span>
+            <div class="card" data-aos="fade-up">
+                <div class="check">✓</div>
+                <div>
+                    <h3 style="color:#fff; font-size:1.1rem; margin-bottom:5px;">Trava na escrita?</h3>
+                    <p style="color:#aaa; font-size:0.9rem;">O método tradicional te obriga a desenhar Kanji. Aqui você foca na FALA e AUDIÇÃO primeiro.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <div class="check">✓</div>
+                <div>
+                    <h3 style="color:#fff; font-size:1.1rem; margin-bottom:5px;">Depende de tradutor?</h3>
+                    <p style="color:#aaa; font-size:0.9rem;">Resolva sozinho seus problemas no banco, prefeitura e concessionária.</p>
                 </div>
             </div>
         </div>
-    </header>
 
-    <section class="pain-section">
-        <div class="container">
-            <div class="dark-card" data-aos="fade-up">
-                <div class="check-icon">✓</div>
-                <div class="card-text">
-                    <h3>Quer sair da fábrica?</h3>
-                    <p>Largar o trabalho pesado e focar em cargos que exigem japonês e pagam muito mais.</p>
-                </div>
-            </div>
-            
-            <div class="dark-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="check-icon">✓</div>
-                <div class="card-text">
-                    <h3>Trava na escrita?</h3>
-                    <p>Tentou cursos tradicionais mas desistiu por causa dos Kanjis antes de aprender a falar.</p>
-                </div>
-            </div>
-
-            <div class="dark-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="check-icon">✓</div>
-                <div class="card-text">
-                    <h3>Depende de tradutor?</h3>
-                    <p>Tenha independência no banco, prefeitura e lojas sem pedir favor para ninguém.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="expert-section">
-        <div class="container">
-            <h2 class="text-center section-title">Resultados em <span class="gold-text">Alta Escala</span></h2>
-            
-            <div class="expert-content">
-                <div class="expert-img" data-aos="fade-right">
-                    
-                    <img src="IMG_6303.jpeg" alt="Especialista Japonês" class="profile-pic">
-
-                </div>
+        <div class="expert-area">
+            <div class="expert-img" data-aos="fade-right">
                 
-                <div class="expert-text" data-aos="fade-left">
-                    <h3>Prazer, eu sou o Especialista</h3>
-                    <p>Moro no Japão assim como você. Durante anos, vi brasileiros perdendo oportunidades de ouro por não falarem o idioma.</p>
-                    <p>Criei o <strong>Método Romanizado</strong> para que você pule a parte chata da escrita inicial e foque no que coloca dinheiro no seu bolso: <strong>A FALA E A AUDIÇÃO.</strong></p>
-                    <p>Você não precisa mais trabalhar anos para ter a casa ou o carro dos seus sonhos. Você só precisa do método certo.</p>
-                </div>
+                <img src="IMG_6303.jpeg" alt="Especialista" onerror="this.onerror=null; this.src='IMG_6303.JPG';">
+                
+            </div>
+            <div data-aos="fade-left">
+                <h2 style="color:#fff; margin-bottom:15px;">Resultados Reais</h2>
+                <p class="sub-text">Moro no Japão assim como você. Criei o <strong>Método Romanizado</strong> para cortar caminho e colocar dinheiro no seu bolso através do idioma, sem perder anos estudando escrita.</p>
             </div>
         </div>
-    </section>
 
-    <section id="oferta" class="offer-section">
-        <div class="container">
-            <div class="offer-card" data-aos="flip-up">
-                <div class="offer-header">OFERTA ESPECIAL POR TEMPO LIMITADO</div>
-                
-                <div class="price-box">
-                    <span class="old-price">De: R$ 997,00</span>
-                    <p style="margin: 10px 0;">POR APENAS 12x DE:</p>
-                    <div class="big-price">R$ 51,40</div>
-                    <p class="cash-price">ou R$ 497,00 à vista</p>
-                </div>
-
-                <a href="LINK_DO_CHECKOUT" class="btn-gold btn-large">SIM! QUERO ME INSCREVER AGORA!</a>
-                
-                <div class="guarantee-badge">
-                    <span>🛡️ 7 Dias de Garantia Incondicional</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="text-center section-title">Dúvidas Frequentes</h2>
+        <div id="oferta" class="offer-box" data-aos="flip-up">
+            <p style="font-weight:700; letter-spacing:1px; margin-bottom:10px;">OFERTA ESPECIAL</p>
+            <p style="text-decoration:line-through; color:#888;">De: R$ 997,00</p>
+            <p style="margin-top:10px;">POR APENAS 12x DE:</p>
+            <div class="price-big">R$ 51,40</div>
+            <p style="font-weight:600; color:#555;">ou R$ 497,00 à vista</p>
             
-            <details class="faq-item">
-                <summary>Em quanto tempo recebo o acesso?</summary>
-                <p>Imediatamente após a aprovação do pagamento. Chega no seu e-mail.</p>
+            <a href="LINK_DO_CHECKOUT" class="btn-gold" style="border:1px solid #000; box-shadow:none;">GARANTIR MINHA VAGA</a>
+            
+            <p style="font-size:0.8rem; margin-top:15px;">🛡️ 7 Dias de Garantia</p>
+        </div>
+
+        <div style="margin-top:50px;">
+            <h2 class="text-center" style="color:#fff; margin-bottom:20px;">Dúvidas Frequentes</h2>
+            <details>
+                <summary>Serve para iniciante?</summary>
+                <p>Sim! Começamos do zero absoluto.</p>
             </details>
-            
-            <details class="faq-item">
-                <summary>Preciso saber Hiragana e Katakana?</summary>
-                <p>Não! O foco inicial é 100% romanizado para você destravar a fala rápido.</p>
+            <details>
+                <summary>Preciso saber Kanji?</summary>
+                <p>Não. O método é romanizado para acelerar sua conversação.</p>
             </details>
-
-            <details class="faq-item">
-                <summary>Serve para quem trabalha em fábrica?</summary>
-                <p>Sim! O curso é feito para quem tem pouco tempo e precisa de resultados rápidos.</p>
+            <details>
+                <summary>Como recebo o acesso?</summary>
+                <p>Chega no seu e-mail imediatamente após a compra.</p>
             </details>
         </div>
-    </section>
 
-    <footer>
-        <div class="container text-center">
-            <p class="gold-text">CURSO JAPONÊS ROMANIZADO</p>
-            <p style="font-size: 12px; color: #666;">Todos os direitos reservados &copy; 2025</p>
-        </div>
-    </footer>
+        <footer>
+            <p>&copy; 2025 Curso Japonês Romanizado</p>
+        </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>
