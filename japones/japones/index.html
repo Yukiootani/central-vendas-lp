@@ -19,8 +19,17 @@
             --text-gray: #a8a8a8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
-        body { background-color: var(--bg-black); color: var(--text-white); overflow-x: hidden; }
+        /* TRAVA ANTI-SAMBA (Fix para iPhone) */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-white);
+        }
+
         img { max-width: 100%; display: block; border-radius: 8px; }
         a { text-decoration: none; }
         
@@ -57,29 +66,27 @@
         }
         .play-icon { font-size: 40px; color: var(--gold); }
 
-        /* --- CARROSSEL DE DEPOIMENTOS (NOVO!) --- */
-        .carousel-container {
-            margin: 40px 0;
-        }
+        /* --- CARROSSEL DE DEPOIMENTOS --- */
+        .carousel-container { margin: 40px 0; }
         .carousel {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 15px;
             padding-bottom: 20px;
-            -webkit-overflow-scrolling: touch; /* Suavidade no iPhone */
+            -webkit-overflow-scrolling: touch;
         }
         .carousel-item {
-            flex: 0 0 85%; /* Ocupa 85% da tela para mostrar que tem mais ao lado */
+            flex: 0 0 85%; /* Largura do item */
             scroll-snap-align: center;
-            border: 1px solid #333;
             border-radius: 12px;
             overflow: hidden;
+            border: 1px solid #333;
         }
-        .carousel::-webkit-scrollbar { height: 5px; }
-        .carousel::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        /* Esconder barra de rolagem feia */
+        .carousel::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        /* LISTA DE BENEFÍCIOS (TIPO CHECKLIST) */
+        /* LISTA DE BENEFÍCIOS */
         .modules-box {
             background: var(--bg-card); border: 1px solid #333; border-radius: 20px;
             padding: 30px 20px; margin: 40px 0;
@@ -136,17 +143,20 @@
 
         <div class="carousel-container" data-aos="fade-up">
             <h2 class="text-center">Resultados de quem aplica:</h2>
-            <p class="text-center sub-text">Arraste para o lado para ver ➜</p>
+            <p class="text-center sub-text" style="font-size:0.8rem;">Deslize para ver os prints ➜</p>
             
             <div class="carousel">
                 <div class="carousel-item">
-                    <img src="print1.jpg" alt="Resultado Aluno" onerror="this.src='https://via.placeholder.com/300x500/222/D4AF37?text=Print+de+Resultado+1'">
+                    <img src="IMG_6319.jpeg" alt="Depoimento 1">
                 </div>
                 <div class="carousel-item">
-                     <img src="print2.jpg" alt="Resultado Aluno" onerror="this.src='https://via.placeholder.com/300x500/222/D4AF37?text=Print+de+Resultado+2'">
+                    <img src="IMG_6318.jpeg" alt="Depoimento 2">
                 </div>
                 <div class="carousel-item">
-                     <img src="print3.jpg" alt="Resultado Aluno" onerror="this.src='https://via.placeholder.com/300x500/222/D4AF37?text=Print+de+Resultado+3'">
+                    <img src="IMG_6316.jpeg" alt="Depoimento 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="IMG_6317.jpeg" alt="Depoimento 4">
                 </div>
             </div>
         </div>
