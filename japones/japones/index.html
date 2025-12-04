@@ -122,6 +122,8 @@
         details { background: #111; margin-bottom: 10px; padding: 20px; border-radius: 8px; border: 1px solid #333; }
         summary { color: #fff; font-weight: 700; cursor: pointer; list-style: none; font-size: 1.1rem; }
         summary::after { content: '+'; float: right; color: var(--gold); }
+        details p { color: #ccc; margin-top: 10px; line-height: 1.5; font-size: 0.95rem; }
+        
         footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.9rem; color: #666; }
     </style>
 </head>
@@ -218,9 +220,21 @@
 
         <div style="margin-top:50px;">
             <h2 class="text-center" style="margin-bottom:20px;">DÚVIDAS</h2>
-            <details><summary>Serve para iniciante?</summary><p>Sim! Começamos do zero absoluto.</p></details>
-            <details><summary>Tem mensalidade?</summary><p>Não! É pagamento único de ¥5.500.</p></details>
-            <details><summary>Como acesso?</summary><p>Chega no seu e-mail na hora.</p></details>
+            
+            <details>
+                <summary>Serve para iniciante?</summary>
+                <p>Sim! O método foi desenhado tanto para quem está no zero absoluto, quanto para quem já sabe o básico/intermediário. O conteúdo é progressivo e liberado semanalmente para você evoluir sem travar.</p>
+            </details>
+            
+            <details>
+                <summary>Tem mensalidade?</summary>
+                <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--red-alert)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro. Depois volta ao valor normal de ¥15.500.</p>
+            </details>
+            
+            <details>
+                <summary>Como acesso?</summary>
+                <p>Após a confirmação do pagamento (seja via conta do correio ou cartão), você recebe o acesso à plataforma imediatamente no seu e-mail cadastrado.</p>
+            </details>
         </div>
 
         <footer>
