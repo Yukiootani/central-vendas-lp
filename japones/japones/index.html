@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japonês Romanizado | Método Validado</title>
+    <title>Japonês Romanizado | Segurança no Japão</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -15,15 +15,16 @@
             --bg-card: #121212;
             --gold: #D4AF37;
             --gold-gradient: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
+            --red-alert: #ff4444; /* Cor de alerta para dor */
             --text-white: #ffffff;
-            --text-gray: #a8a8a8;
+            --text-gray: #bbbbbb;
         }
 
         /* RESET E TRAVA ANTI-SAMBA */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
         html, body {
             max-width: 100%;
-            overflow-x: hidden; /* O segredo para não sambar no iPhone */
+            overflow-x: hidden;
             background-color: var(--bg-black);
             color: var(--text-white);
         }
@@ -31,94 +32,78 @@
         img { max-width: 100%; display: block; border-radius: 8px; }
         a { text-decoration: none; }
         
-        .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 20px 0; }
+        .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* TIPOGRAFIA */
-        h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 20px; color: #fff; }
-        h2 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; }
+        /* TIPOGRAFIA GIGANTE (PEDIDO DO USUÁRIO) */
+        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: -1px; }
+        h2 { font-size: 2rem; color: #fff; margin-bottom: 25px; line-height: 1.1; }
+        h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+        
         .gold-gradient-text {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
-        .gold-text { color: var(--gold); font-weight: bold; }
-        .sub-text { color: var(--text-gray); line-height: 1.6; margin-bottom: 30px; font-size: 1rem; }
+        .red-text { color: var(--red-alert); font-weight: 800; }
+        .sub-text { color: var(--text-gray); line-height: 1.4; margin-bottom: 30px; font-size: 1.1rem; }
 
-        /* BOTÃO DOURADO (Garante largura total e texto centralizado) */
+        /* BOTÃO DOURADO */
         .btn-gold {
             background: var(--gold-gradient);
-            color: #000; font-weight: 800; padding: 18px; border-radius: 50px;
+            color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
             display: block; width: 100%; text-align: center; text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 20px auto;
+            font-size: 1.2rem; /* Letra maior no botão */
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 25px auto;
             animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        /* VIDEO VERTICAL (SHORTS) */
+        /* VIDEO VERTICAL */
         .video-box {
-            position: relative; 
-            /* Configuração para ficar em pé (9:16) e limitado a 350px de largura */
-            max-width: 350px; 
-            aspect-ratio: 9/16; 
-            margin: 0 auto 30px auto;
-            
+            position: relative; max-width: 350px; aspect-ratio: 9/16; margin: 0 auto 30px auto;
             background: #000; border: none; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
         
-        /* CARROSSEL DE DEPOIMENTOS */
-        .carousel-container { margin: 40px 0; }
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 15px;
-            padding-bottom: 20px;
-            -webkit-overflow-scrolling: touch;
-        }
-        .carousel-item {
-            flex: 0 0 85%;
-            scroll-snap-align: center;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #333;
-        }
+        /* CARROSSEL */
+        .carousel-container { margin: 50px 0; }
+        .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
+        .carousel-item { flex: 0 0 85%; scroll-snap-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
         .carousel::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        /* LISTA DE BENEFÍCIOS */
-        .modules-box {
-            background: var(--bg-card); border: 1px solid #333; border-radius: 20px;
-            padding: 30px 20px; margin: 40px 0;
+        /* LISTA DE DORES/BENEFÍCIOS (SIMPLIFICADA) */
+        .alert-box {
+            background: rgba(255, 68, 68, 0.1); border: 1px solid var(--red-alert); border-radius: 15px;
+            padding: 25px; margin: 30px 0; text-align: center;
         }
-        .module-item { display: flex; gap: 15px; margin-bottom: 20px; text-align: left; }
-        .check-gold { color: var(--gold); font-size: 1.2rem; min-width: 25px; }
-
-        /* BÔNUS */
-        .bonus-card {
-            background: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
-            border: 1px solid var(--gold); border-radius: 16px; padding: 25px;
-            text-align: center; margin-top: 30px;
+        .solution-box {
+            background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); border-radius: 15px;
+            padding: 25px; margin: 30px 0; text-align: left;
         }
+        .item-list { font-size: 1.3rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .icon-check { color: var(--gold); font-size: 1.5rem; }
+        .icon-x { color: var(--red-alert); font-size: 1.5rem; }
 
-        /* ESPECIALISTA */
-        .expert-area { margin: 50px 0; }
-        .expert-img { border-bottom: 4px solid var(--gold); margin-bottom: 20px; }
+        /* INSTITUCIONAL (SEM FOTO PESSOAL) */
+        .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .shield-icon { font-size: 3rem; margin-bottom: 10px; }
 
-        /* OFERTA */
-        .offer-box {
+        /* PREÇO (DESTAQUE EM IENES) */
+        .price-box {
             background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px;
-            text-align: center; border: 1px solid var(--gold); margin-top: 40px;
+            text-align: center; border: 4px solid var(--gold); margin-top: 40px;
         }
-        .price-big { font-size: 3.5rem; font-weight: 800; color: #D4AF37; margin: 10px 0; }
+        .price-big { font-size: 3.5rem; font-weight: 800; color: #000; margin: 5px 0; line-height: 1; }
+        .price-old { text-decoration: line-through; color: #888; font-size: 1.2rem; }
+        .month-tag { background: #000; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
 
         /* FAQ */
-        details { background: #111; margin-bottom: 10px; padding: 15px; border-radius: 8px; border: 1px solid #333; }
-        summary { color: #fff; font-weight: 600; cursor: pointer; list-style: none; }
+        details { background: #111; margin-bottom: 10px; padding: 20px; border-radius: 8px; border: 1px solid #333; }
+        summary { color: #fff; font-weight: 700; cursor: pointer; list-style: none; font-size: 1.1rem; }
         summary::after { content: '+'; float: right; color: var(--gold); }
-        footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.8rem; color: #666; }
+        footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.9rem; color: #666; }
     </style>
 </head>
 <body>
@@ -126,9 +111,9 @@
     <div class="container">
         
         <header class="text-center">
-            <span style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; font-weight:700;">MÉTODO VALIDADO NO JAPÃO</span>
-            <h1 data-aos="fade-up">NÃO ACEITE MENOS QUE <span class="gold-gradient-text">O TOPO!</span></h1>
-            <p class="sub-text" data-aos="fade-up">Saia da fábrica, conquiste o carro dos sonhos e tenha liberdade falando Japonês sem precisar decorar Kanji agora.</p>
+            <span style="color:var(--red-alert); font-size:0.9rem; letter-spacing:2px; font-weight:800; text-transform:uppercase;">⚠️ ALERTA AOS BRASILEIROS</span>
+            <h1 data-aos="fade-up">O GOVERNO <span class="red-text">APERTOU O CERCO.</span></h1>
+            <p class="sub-text" data-aos="fade-up" style="font-size: 1.3rem; color: #fff;">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
         </header>
 
         <div class="video-box" data-aos="zoom-in">
@@ -145,75 +130,74 @@
         </div>
 
         <div data-aos="fade-up" class="text-center">
-            <a href="#oferta" class="btn-gold">QUERO COMEÇAR AGORA</a>
-            <p style="font-size:0.8rem; color:#666;">🔒 Compra 100% Segura</p>
+            <a href="#oferta" class="btn-gold">QUERO ME PROTEGER</a>
+            <p style="font-size:0.9rem; color:#888;">🔒 Acesso Imediato e Seguro</p>
+        </div>
+
+        <div class="alert-box" data-aos="fade-up">
+            <h2 style="color:var(--red-alert);">O RISCO É REAL</h2>
+            <div style="display:inline-block; text-align:left; margin-top:10px;">
+                <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS MAIS CAROS</div>
+                <div class="item-list"><span class="icon-x">✕</span> FIM DOS TRADUTORES</div>
+                <div class="item-list"><span class="icon-x">✕</span> VISTOS CANCELADOS</div>
+            </div>
+            <p style="margin-top:20px; font-size:1.1rem;">Você vai esperar o pior acontecer?</p>
+        </div>
+
+        <div class="solution-box" data-aos="fade-up">
+            <h2 class="text-center"><span class="gold-gradient-text">A ÚNICA SAÍDA</span></h2>
+            <p class="text-center sub-text">Você precisa falar, não desenhar. Use o Método Romanizado.</p>
+            
+            <div style="margin-top:20px;">
+                <div class="item-list"><span class="icon-check">✓</span> ZERO KANJI AGORA</div>
+                <div class="item-list"><span class="icon-check">✓</span> FALE EM 3 MESES</div>
+                <div class="item-list"><span class="icon-check">✓</span> ENTENDA CARTAS</div>
+                <div class="item-list"><span class="icon-check">✓</span> RESOLVA NO HOSPITAL</div>
+            </div>
         </div>
 
         <div class="carousel-container" data-aos="fade-up">
-            <h2 class="text-center">Resultados de quem aplica:</h2>
-            <p class="text-center sub-text" style="font-size:0.8rem;">Deslize para ver os prints ➜</p>
-            
+            <h3 class="text-center">QUEM SE PROTEGEU:</h3>
+            <p class="text-center sub-text" style="font-size:0.9rem;">Deslize para ver ➜</p>
             <div class="carousel">
-                <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
-                <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
-                <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
-                <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Erro+Foto'"></div>
+                <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
             </div>
         </div>
 
-        <div class="modules-box" data-aos="fade-up">
-            <h2 class="text-center" style="margin-bottom:30px;">O que você recebe:</h2>
-            <div class="module-item">
-                <div class="check-gold">✓</div>
-                <div><strong>+100 Aulas Práticas</strong><br><span style="color:#888; font-size:0.9rem;">Do zero absoluto até a conversação no trabalho.</span></div>
-            </div>
-            <div class="module-item">
-                <div class="check-gold">✓</div>
-                <div><strong>Método Romanizado</strong><br><span style="color:#888; font-size:0.9rem;">Acelerador de fluência sem Kanji inicial.</span></div>
-            </div>
-            <div class="module-item">
-                <div class="check-gold">✓</div>
-                <div><strong>Suporte no WhatsApp</strong><br><span style="color:#888; font-size:0.9rem;">Tire dúvidas diretamente comigo todos os dias.</span></div>
-            </div>
-        </div>
-
-        <div class="expert-area">
-            <div class="expert-img" data-aos="fade-right">
-                <img src="IMG_6303.jpeg" alt="Especialista" onerror="this.onerror=null; this.src='IMG_6303.JPG';">
-            </div>
-            <div data-aos="fade-left">
-                <h2 style="color:#fff;">Prazer, seu mentor</h2>
-                <p class="sub-text">Moro no Japão assim como você. Criei o <strong>Método Romanizado</strong> para cortar caminho e colocar dinheiro no seu bolso através do idioma, sem perder anos estudando escrita.</p>
-            </div>
-        </div>
-
-        <div class="bonus-card" data-aos="zoom-in">
-            <p style="color:var(--gold); font-weight:bold; letter-spacing:1px;">🎁 BÔNUS EXCLUSIVO</p>
-            <h3 style="color:#fff; margin:15px 0;">Acompanhamento Individual</h3>
-            <p style="color:#aaa; font-size:0.9rem;">Você não será abandonado com aulas gravadas. Terá acesso ao meu suporte pessoal para destravar sua fala.</p>
+        <div class="team-box" data-aos="fade-up">
+            <div class="shield-icon">🛡️</div>
+            <h3>EQUIPE ROMANIZADO</h3>
+            <p class="sub-text" style="margin-bottom:0;">Somos especialistas em segurança e adaptação no Japão. Criamos o método para blindar a comunidade brasileira.</p>
         </div>
 
         <div id="oferta" class="offer-box" data-aos="flip-up">
-            <p style="font-weight:700; letter-spacing:1px; margin-bottom:10px;">OFERTA ESPECIAL</p>
-            <p style="text-decoration:line-through; color:#888;">De: R$ 997,00</p>
-            <p style="margin-top:10px;">POR APENAS 12x DE:</p>
-            <div class="price-big">R$ 51,40</div>
-            <p style="font-weight:600; color:#555;">ou R$ 497,00 à vista</p>
+            <span class="month-tag">SÓ EM DEZEMBRO</span>
+            <p class="price-old">De: ¥15.500</p>
+            <p style="font-weight:700; margin-top:10px;">POR APENAS:</p>
+            <div class="price-big">¥5.500</div>
+            <p style="font-weight:600; color:#555; margin-bottom:20px;">PAGAMENTO ÚNICO</p>
             
-            <a href="LINK_DO_CHECKOUT" class="btn-gold" style="border:1px solid #000; box-shadow:none;">GARANTIR MINHA VAGA</a>
-            
-            <p style="font-size:0.8rem; margin-top:15px;">🛡️ 7 Dias de Garantia</p>
+            <ul style="list-style:none; margin-bottom:20px; text-align:left; display:inline-block;">
+                <li>✅ Acesso Vitalício</li>
+                <li>✅ Suporte Incluso</li>
+                <li>✅ Garantia Total</li>
+            </ul>
+
+            <a href="LINK_DO_CHECKOUT" class="btn-gold" style="border:2px solid #000; box-shadow:none;">GARANTIR VAGA AGORA</a>
         </div>
 
         <div style="margin-top:50px;">
-            <h2 class="text-center" style="color:#fff; margin-bottom:20px;">Dúvidas Frequentes</h2>
+            <h2 class="text-center" style="margin-bottom:20px;">DÚVIDAS</h2>
             <details><summary>Serve para iniciante?</summary><p>Sim! Começamos do zero absoluto.</p></details>
-            <details><summary>Preciso saber Kanji?</summary><p>Não. O método é romanizado para acelerar sua conversação.</p></details>
-            <details><summary>Como recebo o acesso?</summary><p>Chega no seu e-mail imediatamente após a compra.</p></details>
+            <details><summary>Tem mensalidade?</summary><p>Não! É pagamento único de ¥5.500.</p></details>
+            <details><summary>Como acesso?</summary><p>Chega no seu e-mail na hora.</p></details>
         </div>
 
         <footer>
-            <p>&copy; 2025 Curso Japonês Romanizado</p>
+            <p>&copy; 2025 Romanizado Academy</p>
         </footer>
     </div>
 
