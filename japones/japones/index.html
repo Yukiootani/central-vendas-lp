@@ -15,7 +15,7 @@
             --bg-card: #121212;
             --gold: #D4AF37;
             --gold-gradient: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
-            --red-alert: #ff4444; /* Cor de alerta para dor */
+            --red-alert: #ff4444; 
             --text-white: #ffffff;
             --text-gray: #bbbbbb;
         }
@@ -35,7 +35,7 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* TIPOGRAFIA GIGANTE (PEDIDO DO USUÁRIO) */
+        /* TIPOGRAFIA */
         h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: -1px; }
         h2 { font-size: 2rem; color: #fff; margin-bottom: 25px; line-height: 1.1; }
         h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
@@ -54,7 +54,7 @@
             background: var(--gold-gradient);
             color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
             display: block; width: 100%; text-align: center; text-transform: uppercase;
-            font-size: 1.2rem; /* Letra maior no botão */
+            font-size: 1.2rem;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 25px auto;
             animation: pulse 2s infinite;
         }
@@ -73,7 +73,7 @@
         .carousel-item { flex: 0 0 85%; scroll-snap-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
         .carousel::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        /* LISTA DE DORES/BENEFÍCIOS (SIMPLIFICADA) */
+        /* LISTA DE DORES/BENEFÍCIOS */
         .alert-box {
             background: rgba(255, 68, 68, 0.1); border: 1px solid var(--red-alert); border-radius: 15px;
             padding: 25px; margin: 30px 0; text-align: center;
@@ -86,16 +86,26 @@
         .icon-check { color: var(--gold); font-size: 1.5rem; }
         .icon-x { color: var(--red-alert); font-size: 1.5rem; }
 
-        /* INSTITUCIONAL (SEM FOTO PESSOAL) */
+        /* INSTITUCIONAL (NOVO ÍCONE E TEXTO) */
         .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
-        .shield-icon { font-size: 3rem; margin-bottom: 10px; }
+        .speak-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
 
-        /* PREÇO (DESTAQUE EM IENES) */
+        /* PREÇO PISCANTE (NEON) */
         .price-box {
             background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px;
             text-align: center; border: 4px solid var(--gold); margin-top: 40px;
         }
-        .price-big { font-size: 3.5rem; font-weight: 800; color: #000; margin: 5px 0; line-height: 1; }
+        .price-big { 
+            font-size: 3.8rem; font-weight: 800; color: #000; margin: 10px 0; line-height: 1; 
+            /* EFEITO PISCA-PISCA / NEON */
+            animation: flash-gold 1.5s infinite alternate;
+        }
+        
+        @keyframes flash-gold {
+            0% { color: #000; text-shadow: none; transform: scale(1); }
+            100% { color: #b8860b; text-shadow: 0 0 20px #FFD700; transform: scale(1.05); }
+        }
+
         .price-old { text-decoration: line-through; color: #888; font-size: 1.2rem; }
         .month-tag { background: #000; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
 
@@ -168,16 +178,22 @@
         </div>
 
         <div class="team-box" data-aos="fade-up">
-            <div class="shield-icon">🛡️</div>
-            <h3>EQUIPE ROMANIZADO</h3>
-            <p class="sub-text" style="margin-bottom:0;">Somos especialistas em segurança e adaptação no Japão. Criamos o método para blindar a comunidade brasileira.</p>
+            <span class="speak-icon">💬</span>
+            <h3 class="gold-text">EQUIPE JAPONÊS ROMANIZADO</h3>
+            <p class="sub-text" style="margin-bottom:0; font-size: 1.1rem; color: #fff;">
+                Desenvolvemos o <strong>ÚNICO MÉTODO</strong> que elimina a barreira da escrita japonesa. 
+                <br><br>
+                Nossa tecnologia foca 100% na sua <strong>fala e audição</strong> para que você tenha fluência e segurança total, sem perder anos desenhando letras.
+            </p>
         </div>
 
         <div id="oferta" class="offer-box" data-aos="flip-up">
             <span class="month-tag">SÓ EM DEZEMBRO</span>
             <p class="price-old">De: ¥15.500</p>
             <p style="font-weight:700; margin-top:10px;">POR APENAS:</p>
+            
             <div class="price-big">¥5.500</div>
+            
             <p style="font-weight:600; color:#555; margin-bottom:20px;">PAGAMENTO ÚNICO</p>
             
             <ul style="list-style:none; margin-bottom:20px; text-align:left; display:inline-block;">
