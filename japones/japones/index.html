@@ -82,11 +82,13 @@
             background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); border-radius: 15px;
             padding: 25px; margin: 30px 0; text-align: left;
         }
-        .item-list { font-size: 1.3rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-        .icon-check { color: var(--gold); font-size: 1.5rem; }
-        .icon-x { color: var(--red-alert); font-size: 1.5rem; }
+        
+        /* Ajuste de tamanho da letra na lista para caber no celular */
+        .item-list { font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: flex-start; gap: 10px; line-height: 1.3; }
+        .icon-check { color: var(--gold); font-size: 1.4rem; min-width: 25px; }
+        .icon-x { color: var(--red-alert); font-size: 1.4rem; min-width: 25px; }
 
-        /* INSTITUCIONAL (NOVO ÍCONE E TEXTO) */
+        /* INSTITUCIONAL */
         .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
         .speak-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
 
@@ -97,10 +99,8 @@
         }
         .price-big { 
             font-size: 3.8rem; font-weight: 800; color: #000; margin: 10px 0; line-height: 1; 
-            /* EFEITO PISCA-PISCA / NEON */
             animation: flash-gold 1.5s infinite alternate;
         }
-        
         @keyframes flash-gold {
             0% { color: #000; text-shadow: none; transform: scale(1); }
             100% { color: #b8860b; text-shadow: 0 0 20px #FFD700; transform: scale(1.05); }
@@ -148,8 +148,8 @@
             <h2 style="color:var(--red-alert);">O RISCO É REAL</h2>
             <div style="display:inline-block; text-align:left; margin-top:10px;">
                 <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS MAIS CAROS</div>
-                <div class="item-list"><span class="icon-x">✕</span> FIM DOS TRADUTORES</div>
-                <div class="item-list"><span class="icon-x">✕</span> VISTOS CANCELADOS</div>
+                <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM ASIÁTICOS</div>
+                <div class="item-list"><span class="icon-x">✕</span> VISTOS EM PERIGO</div>
             </div>
             <p style="margin-top:20px; font-size:1.1rem;">Você vai esperar o pior acontecer?</p>
         </div>
@@ -159,10 +159,10 @@
             <p class="text-center sub-text">Você precisa falar, não desenhar. Use o Método Romanizado.</p>
             
             <div style="margin-top:20px;">
-                <div class="item-list"><span class="icon-check">✓</span> ZERO KANJI AGORA</div>
-                <div class="item-list"><span class="icon-check">✓</span> FALE EM 3 MESES</div>
-                <div class="item-list"><span class="icon-check">✓</span> ENTENDA CARTAS</div>
-                <div class="item-list"><span class="icon-check">✓</span> RESOLVA NO HOSPITAL</div>
+                <div class="item-list"><span class="icon-check">✓</span> ZERO KANJI, HIRAGANA E KATAKANA</div>
+                <div class="item-list"><span class="icon-check">✓</span> FALE EM TEMPO RECORDE</div>
+                <div class="item-list"><span class="icon-check">✓</span> EMPREGOS QUE PAGAM MAIS</div>
+                <div class="item-list"><span class="icon-check">✓</span> PARE DE DEPENDER DOS OUTROS</div>
             </div>
         </div>
 
