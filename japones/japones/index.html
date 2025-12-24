@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japonês Romanizado | Segurança no Japão</title>
+    <title>Japonês Romanizado | Análise de Perfil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -24,7 +24,7 @@
     src="https://www.facebook.com/tr?id=1057042062998950&ev=PageView&noscript=1"
     /></noscript>
     <style>
-        /* --- ESTILO GERAL DARK PREMIUM --- */
+        /* --- ESTILO GERAL DARK PREMIUM (COMPARTILHADO) --- */
         :root {
             --bg-black: #050505;
             --bg-card: #121212;
@@ -35,7 +35,7 @@
             --text-gray: #bbbbbb;
         }
 
-        /* RESET E TRAVA ANTI-SAMBA */
+        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
         html, body {
             max-width: 100%;
@@ -50,7 +50,103 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* TIPOGRAFIA */
+        /* --- ESTILOS EXCLUSIVOS DO QUIZ --- */
+        #landing-page { display: none; /* Oculto inicialmente */ }
+        
+        #quiz-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        }
+
+        .quiz-card {
+            width: 90%;
+            max-width: 500px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .quiz-step { display: none; animation: fadeIn 0.5s ease; }
+        .quiz-step.active { display: block; }
+
+        .quiz-question {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .quiz-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quiz-btn:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(5px);
+        }
+
+        .quiz-btn span {
+            background: #333;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 0.8rem;
+            color: var(--gold);
+        }
+
+        /* Barra de Progresso do Quiz */
+        .progress-container {
+            width: 100%;
+            background: #222;
+            height: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--gold-gradient);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .analyzing-text {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- ESTILOS DA LANDING PAGE (MANTIDOS) --- */
         h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: -1px; }
         h2 { font-size: 2rem; color: #fff; margin-bottom: 25px; line-height: 1.1; }
         h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
@@ -64,7 +160,6 @@
         .red-text { color: var(--red-alert); font-weight: 800; }
         .sub-text { color: var(--text-gray); line-height: 1.4; margin-bottom: 30px; font-size: 1.1rem; }
 
-        /* BOTÃO DOURADO */
         .btn-gold {
             background: var(--gold-gradient);
             color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
@@ -72,68 +167,40 @@
             font-size: 1.2rem;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 25px auto;
             animation: pulse 2s infinite;
+            cursor: pointer; border: none;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        /* VIDEO VERTICAL (PARA OS DOIS VÍDEOS) */
         .video-box {
             position: relative; max-width: 350px; aspect-ratio: 9/16; margin: 0 auto 30px auto;
             background: #000; border: none; border-radius: 12px;
             display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
         
-        /* CARROSSEL */
         .carousel-container { margin: 50px 0; }
         .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
         .carousel-item { flex: 0 0 85%; scroll-snap-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
         .carousel::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        /* LISTA DE DORES/BENEFÍCIOS */
-        .alert-box {
-            background: rgba(255, 68, 68, 0.1); border: 1px solid var(--red-alert); border-radius: 15px;
-            padding: 25px; margin: 30px 0; text-align: center;
-        }
-        .solution-box {
-            background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); border-radius: 15px;
-            padding: 25px; margin: 30px 0; text-align: left;
-        }
+        .alert-box { background: rgba(255, 68, 68, 0.1); border: 1px solid var(--red-alert); border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center; }
+        .solution-box { background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); border-radius: 15px; padding: 25px; margin: 30px 0; text-align: left; }
         
         .item-list { font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: flex-start; gap: 10px; line-height: 1.3; }
         .icon-check { color: var(--gold); font-size: 1.4rem; min-width: 25px; }
         .icon-x { color: var(--red-alert); font-size: 1.4rem; min-width: 25px; }
 
-        /* INSTITUCIONAL */
         .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
         .speak-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
 
-        /* PREÇO PISCANTE (NEON) */
-        .price-box {
-            background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px;
-            text-align: center; border: 4px solid var(--gold); margin-top: 40px;
-        }
-        .price-big { 
-            font-size: 3.8rem; font-weight: 800; color: #000; margin: 10px 0; line-height: 1; 
-            animation: flash-gold 1.5s infinite alternate;
-        }
-        @keyframes flash-gold {
-            0% { color: #000; text-shadow: none; transform: scale(1); }
-            100% { color: #b8860b; text-shadow: 0 0 20px #FFD700; transform: scale(1.05); }
-        }
+        .price-box { background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px; text-align: center; border: 4px solid var(--gold); margin-top: 40px; }
+        .price-big { font-size: 3.8rem; font-weight: 800; color: #000; margin: 10px 0; line-height: 1; animation: flash-gold 1.5s infinite alternate; }
+        @keyframes flash-gold { 0% { color: #000; text-shadow: none; transform: scale(1); } 100% { color: #b8860b; text-shadow: 0 0 20px #FFD700; transform: scale(1.05); } }
 
         .price-old { text-decoration: line-through; color: #888; font-size: 1.2rem; }
         .month-tag { background: #000; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
 
-        /* LISTA DE BENEFÍCIOS (AJUSTADA) */
-        .benefit-list li {
-            margin-bottom: 15px; 
-            font-size: 1.1rem; 
-            font-weight: 600;
-            display: flex; 
-            align-items: center; 
-            gap: 10px;
-        }
+        .benefit-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
 
-        /* FAQ */
         details { background: #111; margin-bottom: 10px; padding: 20px; border-radius: 8px; border: 1px solid #333; }
         summary { color: #fff; font-weight: 700; cursor: pointer; list-style: none; font-size: 1.1rem; }
         summary::after { content: '+'; float: right; color: var(--gold); }
@@ -144,142 +211,255 @@
 </head>
 <body>
 
-    <div class="container">
-        
-        <header class="text-center">
-            <span style="color:var(--red-alert); font-size:0.9rem; letter-spacing:2px; font-weight:800; text-transform:uppercase;">⚠️ ALERTA AOS BRASILEIROS</span>
-            <h1 data-aos="fade-up">O GOVERNO <span class="red-text">APERTOU O CERCO.</span></h1>
-            <p class="sub-text" data-aos="fade-up" style="font-size: 1.3rem; color: #fff;">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
-        </header>
-
-        <div class="video-box" data-aos="zoom-in">
-            <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/woVsa8iGmh4?rel=0&controls=1&modestbranding=1" 
-                title="Vídeo de Vendas" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen 
-                style="border-radius: 12px; border: 1px solid #333;">
-            </iframe>
-        </div>
-
-        <div data-aos="fade-up" class="text-center">
-            <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold">QUERO ME PROTEGER</a>
-            <p style="font-size:0.9rem; color:#888;">🔒 Acesso Imediato e Seguro</p>
-        </div>
-
-        <div class="alert-box" data-aos="fade-up">
-            <h2 style="color:var(--red-alert);">O RISCO É REAL</h2>
-            <div style="display:inline-block; text-align:left; margin-top:10px;">
-                <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS MAIS CAROS</div>
-                <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM ASIÁTICOS</div>
-                <div class="item-list"><span class="icon-x">✕</span> VISTOS EM PERIGO</div>
+    <div id="quiz-container">
+        <div class="quiz-card">
+            
+            <div class="quiz-step active" id="step-1">
+                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 1 de 4</p>
+                <h2 class="quiz-question">Qual tipo de brasileiro você é no Japão?</h2>
+                <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Acho que não preciso aprender, uso intérpretes.</button>
+                <button class="quiz-btn" onclick="nextStep(2)"><span>B</span> Quero aprender para ser independente.</button>
             </div>
-            <p style="margin-top:20px; font-size:1.1rem;">Você vai esperar o pior acontecer?</p>
-        </div>
 
-        <div class="solution-box" data-aos="fade-up">
-            <h2 class="text-center"><span class="gold-gradient-text">A ÚNICA SAÍDA</span></h2>
-            <p class="text-center sub-text">Você precisa falar, não desenhar. Use o Método Romanizado.</p>
-            
-            <div style="margin-top:20px;">
-                <div class="item-list"><span class="icon-check">✓</span> ZERO KANJI, HIRAGANA E KATAKANA</div>
-                <div class="item-list"><span class="icon-check">✓</span> FALE EM TEMPO RECORDE</div>
-                <div class="item-list"><span class="icon-check">✓</span> EMPREGOS QUE PAGAM MAIS</div>
-                <div class="item-list"><span class="icon-check">✓</span> PARE DE DEPENDER DOS OUTROS</div>
+            <div class="quiz-step" id="step-2">
+                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 2 de 4</p>
+                <h2 class="quiz-question">Por que o japonês seria útil para você hoje?</h2>
+                <button class="quiz-btn" onclick="nextStep(3)"><span>A</span> Ter estabilidade (concorrer com asiáticos).</button>
+                <button class="quiz-btn" onclick="nextStep(3)"><span>B</span> Medo do governo pedir na renovação do visto.</button>
+                <button class="quiz-btn" onclick="nextStep(3)"><span>C</span> Me comunicar melhor no dia a dia.</button>
             </div>
-        </div>
 
-        <div class="carousel-container" data-aos="fade-up">
-            <h3 class="text-center">QUEM SE PROTEGEU:</h3>
-            <p class="text-center sub-text" style="font-size:0.9rem;">Deslize para ver ➜</p>
-            <div class="carousel">
-                <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
-                <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
-                <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
-                <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+            <div class="quiz-step" id="step-3">
+                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 3 de 4</p>
+                <h2 class="quiz-question">Você já tentou algum método antes?</h2>
+                <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
+                <button class="quiz-btn" onclick="nextStep(4)"><span>B</span> Nunca tentei, acho muito difícil.</button>
             </div>
+
+            <div class="quiz-step" id="step-4">
+                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta Final</p>
+                <h2 class="quiz-question">Se existisse um método 100% focado na fala (sem escrita), quando você começaria?</h2>
+                <button class="quiz-btn" onclick="startAnalysis()"><span>A</span> Imediatamente (É o que preciso).</button>
+                <button class="quiz-btn" onclick="startAnalysis()"><span>B</span> Talvez no mês que vem.</button>
+            </div>
+
+            <div class="quiz-step" id="step-loading">
+                <p class="analyzing-text">Analisando seu perfil...</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <p style="font-size:0.9rem; color:#888;">Cruzando dados com métodos disponíveis...</p>
+            </div>
+
+            <div class="quiz-step" id="step-result">
+                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg);" alt="Check">
+                <h2 class="quiz-question" style="color:var(--gold);">PERFIL APROVADO</h2>
+                <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5;">Baseado nas suas respostas, encontramos a <strong>estratégia exata</strong> para você sair do zero e falar japonês sem depender da escrita.</p>
+                <button class="btn-gold" onclick="revealLandingPage()">VER MINHA RECOMENDAÇÃO</button>
+            </div>
+
         </div>
+    </div>
+    <div id="landing-page">
+        <div class="container">
+            
+            <header class="text-center">
+                <span style="color:var(--red-alert); font-size:0.9rem; letter-spacing:2px; font-weight:800; text-transform:uppercase;">⚠️ ALERTA AOS BRASILEIROS</span>
+                <h1 data-aos="fade-up">O GOVERNO <span class="red-text">APERTOU O CERCO.</span></h1>
+                <p class="sub-text" data-aos="fade-up" style="font-size: 1.3rem; color: #fff;">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
+            </header>
 
-        <div class="team-box" data-aos="fade-up">
-            <span class="speak-icon">💬</span>
-            <h3 class="gold-text">EQUIPE JAPONÊS ROMANIZADO</h3>
-            <p class="sub-text" style="margin-bottom:0; font-size: 1.1rem; color: #fff;">
-                Desenvolvemos o <strong>ÚNICO MÉTODO</strong> que elimina a barreira da escrita japonesa. 
-                <br><br>
-                Nossa tecnologia foca 100% na sua <strong>fala e audição</strong> para que você tenha fluência e segurança total, sem perder anos desenhando letras.
-            </p>
-        </div>
-
-        <div id="oferta" class="offer-box" data-aos="flip-up">
-            <span class="month-tag">SÓ EM DEZEMBRO</span>
-            <p class="price-old">De: ¥15.500</p>
-            <p style="font-weight:700; margin-top:10px;">POR APENAS:</p>
-            
-            <div class="price-big">¥5.500</div>
-            
-            <p style="font-weight:600; color:#555; margin-bottom:20px;">PAGAMENTO ÚNICO</p>
-            
-            <ul class="benefit-list" style="list-style:none; margin-bottom:20px; text-align:left; display:inline-block; padding:0;">
-                <li>✅ Acesso Vitalício</li>
-                <li>✅ 5 Ferramentas de IA Inclusas</li>
-                <li>✅ Vocabulário Específico de Fábrica</li>
-                <li>✅ Acesso Imediato pelo Celular</li>
-                <li>✅ Aulas Curtas e Práticas</li>
-            </ul>
-
-            <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold" style="border:2px solid #000; box-shadow:none;">GARANTIR VAGA AGORA</a>
-        </div>
-
-        <div style="margin-top:50px;">
-            <h2 class="text-center" style="margin-bottom:20px;">DÚVIDAS</h2>
-            
-            <details>
-                <summary>Serve para iniciante?</summary>
-                <p>Sim! O método foi desenhado tanto para quem está no zero absoluto, quanto para quem já sabe o básico/intermediário. A estrutura é focada em prática, fazendo você <strong>progredir visivelmente a cada semana</strong> de estudo.</p>
-            </details>
-            
-            <details>
-                <summary>Tem mensalidade?</summary>
-                <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--red-alert)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro. Depois volta ao valor normal de ¥15.500.</p>
-            </details>
-            
-            <details>
-                <summary>Como acesso?</summary>
-                <p>Após a confirmação do pagamento (seja via conta do correio ou cartão), você recebe o acesso à plataforma imediatamente no seu e-mail cadastrado.</p>
-            </details>
-        </div>
-
-        <section class="platform-video-section" style="margin-top: 60px; margin-bottom: 60px; text-align: center;" data-aos="fade-up">
-            <h2 class="gold-gradient-text" style="margin-bottom: 10px;">VEJA POR DENTRO</h2>
-            <p class="sub-text">Simples, direta e fácil de usar no celular.</p>
-            
             <div class="video-box" data-aos="zoom-in">
                 <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/D-Emt15vXxw?rel=0&controls=1&modestbranding=1" 
-                    title="Tour pela Plataforma" 
+                    src="https://www.youtube.com/embed/woVsa8iGmh4?rel=0&controls=1&modestbranding=1" 
+                    title="Vídeo de Vendas" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen 
                     style="border-radius: 12px; border: 1px solid #333;">
                 </iframe>
             </div>
-            
-            <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold">QUERO COMEÇAR AGORA</a>
-        </section>
 
-        <footer>
-            <p>&copy; 2025 Romanizado Academy</p>
-        </footer>
+            <div data-aos="fade-up" class="text-center">
+                <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold">QUERO ME PROTEGER</a>
+                <p style="font-size:0.9rem; color:#888;">🔒 Acesso Imediato e Seguro</p>
+            </div>
+
+            <div class="alert-box" data-aos="fade-up">
+                <h2 style="color:var(--red-alert);">O RISCO É REAL</h2>
+                <div style="display:inline-block; text-align:left; margin-top:10px;">
+                    <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS MAIS CAROS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM ASIÁTICOS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> VISTOS EM PERIGO</div>
+                </div>
+                <p style="margin-top:20px; font-size:1.1rem;">Você vai esperar o pior acontecer?</p>
+            </div>
+
+            <div class="solution-box" data-aos="fade-up">
+                <h2 class="text-center"><span class="gold-gradient-text">A ÚNICA SAÍDA</span></h2>
+                <p class="text-center sub-text">Você precisa falar, não desenhar. Use o Método Romanizado.</p>
+                
+                <div style="margin-top:20px;">
+                    <div class="item-list"><span class="icon-check">✓</span> ZERO KANJI, HIRAGANA E KATAKANA</div>
+                    <div class="item-list"><span class="icon-check">✓</span> FALE EM TEMPO RECORDE</div>
+                    <div class="item-list"><span class="icon-check">✓</span> EMPREGOS QUE PAGAM MAIS</div>
+                    <div class="item-list"><span class="icon-check">✓</span> PARE DE DEPENDER DOS OUTROS</div>
+                </div>
+            </div>
+
+            <div class="carousel-container" data-aos="fade-up">
+                <h3 class="text-center">QUEM SE PROTEGEU:</h3>
+                <p class="text-center sub-text" style="font-size:0.9rem;">Deslize para ver ➜</p>
+                <div class="carousel">
+                    <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                </div>
+            </div>
+
+            <div class="team-box" data-aos="fade-up">
+                <span class="speak-icon">💬</span>
+                <h3 class="gold-gradient-text">EQUIPE JAPONÊS ROMANIZADO</h3>
+                <p class="sub-text" style="margin-bottom:0; font-size: 1.1rem; color: #fff;">
+                    Desenvolvemos o <strong>ÚNICO MÉTODO</strong> que elimina a barreira da escrita japonesa. 
+                    <br><br>
+                    Nossa tecnologia foca 100% na sua <strong>fala e audição</strong> para que você tenha fluência e segurança total, sem perder anos desenhando letras.
+                </p>
+            </div>
+
+            <div id="oferta" class="offer-box" data-aos="flip-up">
+                <div class="price-box">
+                    <span class="month-tag">SÓ EM DEZEMBRO</span>
+                    <p class="price-old">De: ¥15.500</p>
+                    <p style="font-weight:700; margin-top:10px;">POR APENAS:</p>
+                    
+                    <div class="price-big">¥5.500</div>
+                    
+                    <p style="font-weight:600; color:#555; margin-bottom:20px;">PAGAMENTO ÚNICO</p>
+                    
+                    <ul class="benefit-list" style="list-style:none; margin-bottom:20px; text-align:left; display:inline-block; padding:0;">
+                        <li>✅ Acesso Vitalício</li>
+                        <li>✅ 5 Ferramentas de IA Inclusas</li>
+                        <li>✅ Vocabulário Específico de Fábrica</li>
+                        <li>✅ Acesso Imediato pelo Celular</li>
+                        <li>✅ Aulas Curtas e Práticas</li>
+                    </ul>
+
+                    <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold" style="border:2px solid #000; box-shadow:none;">GARANTIR VAGA AGORA</a>
+                </div>
+            </div>
+
+            <div style="margin-top:50px;">
+                <h2 class="text-center" style="margin-bottom:20px;">DÚVIDAS</h2>
+                
+                <details>
+                    <summary>Serve para iniciante?</summary>
+                    <p>Sim! O método foi desenhado tanto para quem está no zero absoluto, quanto para quem já sabe o básico/intermediário. A estrutura é focada em prática, fazendo você <strong>progredir visivelmente a cada semana</strong> de estudo.</p>
+                </details>
+                
+                <details>
+                    <summary>Tem mensalidade?</summary>
+                    <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--red-alert)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro. Depois volta ao valor normal de ¥15.500.</p>
+                </details>
+                
+                <details>
+                    <summary>Como acesso?</summary>
+                    <p>Após a confirmação do pagamento (seja via conta do correio ou cartão), você recebe o acesso à plataforma imediatamente no seu e-mail cadastrado.</p>
+                </details>
+            </div>
+
+            <section class="platform-video-section" style="margin-top: 60px; margin-bottom: 60px; text-align: center;" data-aos="fade-up">
+                <h2 class="gold-gradient-text" style="margin-bottom: 10px;">VEJA POR DENTRO</h2>
+                <p class="sub-text">Simples, direta e fácil de usar no celular.</p>
+                
+                <div class="video-box" data-aos="zoom-in">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/D-Emt15vXxw?rel=0&controls=1&modestbranding=1" 
+                        title="Tour pela Plataforma" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        style="border-radius: 12px; border: 1px solid #333;">
+                    </iframe>
+                </div>
+                
+                <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold">QUERO COMEÇAR AGORA</a>
+            </section>
+
+            <footer>
+                <p>&copy; 2025 Romanizado Academy</p>
+            </footer>
+        </div>
     </div>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        // Lógica do Quiz
+        function nextStep(stepNumber) {
+            // Esconde todos
+            const steps = document.querySelectorAll('.quiz-step');
+            steps.forEach(s => s.classList.remove('active'));
+            
+            // Mostra o próximo
+            document.getElementById('step-' + stepNumber).classList.add('active');
+        }
+
+        function startAnalysis() {
+            // Vai para a tela de loading
+            const steps = document.querySelectorAll('.quiz-step');
+            steps.forEach(s => s.classList.remove('active'));
+            document.getElementById('step-loading').classList.add('active');
+
+            // Anima a barra
+            const bar = document.getElementById('progress-bar');
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Quando terminar, mostra o resultado
+                    showResult();
+                } else {
+                    width++;
+                    bar.style.width = width + '%';
+                }
+            }, 30); // 3 segundos total (30ms * 100)
+        }
+
+        function showResult() {
+            document.getElementById('step-loading').classList.remove('active');
+            document.getElementById('step-result').classList.add('active');
+        }
+
+        function revealLandingPage() {
+            // Fade out do quiz e Fade in da Landing Page
+            const quizContainer = document.getElementById('quiz-container');
+            const landingPage = document.getElementById('landing-page');
+
+            quizContainer.style.opacity = '0';
+            quizContainer.style.transition = 'opacity 0.5s ease';
+
+            setTimeout(() => {
+                quizContainer.style.display = 'none';
+                landingPage.style.display = 'block';
+                
+                // Inicia as animações da Landing Page APENAS agora
+                // para evitar conflitos de posicionamento
+                AOS.init({ duration: 800, once: true });
+                
+                // Rola para o topo suavemente
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Dispara evento pro Facebook Pixel (Opcional: Lead Qualificado)
+                if(typeof fbq === 'function') {
+                    fbq('track', 'Lead'); 
+                }
+
+            }, 500);
+        }
     </script>
 </body>
 </html>
