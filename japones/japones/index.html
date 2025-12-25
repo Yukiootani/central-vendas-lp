@@ -253,17 +253,20 @@
                 <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 2 de 4</p>
                 <h2 class="quiz-question">Por que o japonês seria útil para você hoje?</h2>
-                <button class="quiz-btn" onclick="nextStep(3)"><span>A</span> Ter estabilidade (concorrer com asiáticos).</button>
-                <button class="quiz-btn" onclick="nextStep(3)"><span>B</span> Medo do governo pedir na renovação do visto.</button>
-                <button class="quiz-btn" onclick="nextStep(3)"><span>C</span> Me comunicar melhor no dia a dia.</button>
+                
+                <button class="quiz-btn" onclick="setUserProfile('estabilidade'); nextStep(3)"><span>A</span> Ter estabilidade (concorrer com asiáticos).</button>
+                
+                <button class="quiz-btn" onclick="setUserProfile('visto'); nextStep(3)"><span>B</span> Medo do governo pedir na renovação do visto.</button>
+                
+                <button class="quiz-btn" onclick="setUserProfile('comunicacao'); nextStep(3)"><span>C</span> Me comunicar melhor no dia a dia.</button>
             </div>
 
             <div class="quiz-step" id="step-3">
                 <img src="IMG_6557.jpeg" class="quiz-img" alt="Dificuldade com Kanji">
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 3 de 4</p>
                 <h2 class="quiz-question">Você já tentou algum método antes?</h2>
-                <button class="quiz-btn" onclick="setUserProfile('travado'); nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
-                <button class="quiz-btn" onclick="setUserProfile('iniciante'); nextStep(4)"><span>B</span> Nunca tentei, acho muito difícil.</button>
+                <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
+                <button class="quiz-btn" onclick="nextStep(4)"><span>B</span> Nunca tentei, acho muito difícil.</button>
             </div>
 
             <div class="quiz-step" id="step-4">
@@ -433,9 +436,9 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- LÓGICA DE PERSONALIZAÇÃO ---
+        // --- LÓGICA DE PERSONALIZAÇÃO (AGORA BASEADA NA PERGUNTA 2) ---
         
-        let userProfile = 'iniciante'; // Padrão
+        let userProfile = 'visto'; // Padrão
 
         function setUserProfile(profile) {
             userProfile = profile;
@@ -449,28 +452,40 @@
             const probTitle = document.getElementById('lp-problem-title');
             const probList = document.getElementById('lp-problem-list');
 
-            // --- CENÁRIO A: TRAVADO NO KANJI ---
-            if (userProfile === 'travado') {
-                headline.innerHTML = 'VOCÊ SABE FALAR, <span class="red-text">SÓ NÃO SABE LER?</span>';
-                sub.innerHTML = 'Você não precisa desenhar Kanji para ser fluente. Destrave seu japonês com o método Romanizado.';
+            // --- PERFIL 1: ESTABILIDADE / FÁBRICA ---
+            if (userProfile === 'estabilidade') {
+                headline.innerHTML = 'OS ASIÁTICOS <span class="red-text">VÃO ROUBAR SUA VAGA?</span>';
+                sub.innerHTML = 'Na fábrica, quem fala Japonês manda. Quem não fala, obedece (ou roda). Garanta sua estabilidade agora.';
                 
-                probTitle.innerHTML = 'POR QUE VOCÊ TRAVOU:';
+                probTitle.innerHTML = 'O QUE TE AMEAÇA HOJE:';
                 probList.innerHTML = `
-                    <div class="item-list"><span class="icon-x">✕</span> METODOLOGIA TRADICIONAL LENTA</div>
-                    <div class="item-list"><span class="icon-x">✕</span> EXIGÊNCIA DE KANJI E HIRAGANA</div>
-                    <div class="item-list"><span class="icon-x">✕</span> FOCO EM ESCRITA, NÃO NA FALA</div>
+                    <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM VIETNAMITAS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> SALÁRIO ESTAGNADO</div>
+                    <div class="item-list"><span class="icon-x">✕</span> RISCO DE CORTE</div>
                 `;
             
-            // --- CENÁRIO B: INICIANTE / MEDO ---
-            } else {
-                headline.innerHTML = 'FALAR JAPONÊS É <span class="red-text">MAIS FÁCIL DO QUE PARECE.</span>';
-                sub.innerHTML = 'Esqueça os métodos difíceis. Comece do zero e fale suas primeiras frases na primeira semana.';
+            // --- PERFIL 2: VISTO / GOVERNO (Medo) ---
+            } else if (userProfile === 'visto') {
+                headline.innerHTML = 'O GOVERNO <span class="red-text">APERTOU O CERCO.</span>';
+                sub.innerHTML = 'Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo da imigração.';
                 
-                probTitle.innerHTML = 'O QUE TE IMPEDE HOJE:';
+                probTitle.innerHTML = 'O RISCO É REAL:';
                 probList.innerHTML = `
-                    <div class="item-list"><span class="icon-x">✕</span> MEDO DE SER DIFÍCIL</div>
-                    <div class="item-list"><span class="icon-x">✕</span> ACHAR QUE DEMORA ANOS</div>
-                    <div class="item-list"><span class="icon-x">✕</span> NÃO SABER POR ONDE COMEÇAR</div>
+                    <div class="item-list"><span class="icon-x">✕</span> VISTOS NEGADOS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS E BUROCRACIA</div>
+                    <div class="item-list"><span class="icon-x">✕</span> INSEGURANÇA FAMILIAR</div>
+                `;
+
+            // --- PERFIL 3: COMUNICAÇÃO / DIA A DIA ---
+            } else {
+                headline.innerHTML = 'CANSADO DE <span class="red-text">DEPENDER DOS OUTROS?</span>';
+                sub.innerHTML = 'Chega de pagar intérprete ou travar no médico e na prefeitura. Seja independente de verdade.';
+                
+                probTitle.innerHTML = 'SUA REALIDADE HOJE:';
+                probList.innerHTML = `
+                    <div class="item-list"><span class="icon-x">✕</span> GASTOS COM INTÉRPRETE</div>
+                    <div class="item-list"><span class="icon-x">✕</span> VERGONHA DE NÃO FALAR</div>
+                    <div class="item-list"><span class="icon-x">✕</span> ISOLAMENTO SOCIAL</div>
                 `;
             }
         }
@@ -506,7 +521,7 @@
         }
 
         function revealLandingPage() {
-            // CHAMA A PERSONALIZAÇÃO ANTES DE ABRIR
+            // CHAMA A PERSONALIZAÇÃO ANTES DE ABRIR A LP
             personalizeLandingPage();
 
             const quizContainer = document.getElementById('quiz-container');
