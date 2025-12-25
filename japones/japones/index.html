@@ -24,14 +24,14 @@
     src="https://www.facebook.com/tr?id=1057042062998950&ev=PageView&noscript=1"
     /></noscript>
     <style>
-        /* --- ESTILO CLEAN JAPAN --- */
+        /* --- ESTILO CLEAN JAPAN (BRANCO, VERMELHO E CINZA) --- */
         :root {
-            --bg-body: #F7F9FC;
-            --bg-card: #FFFFFF;
-            --japan-red: #BC002D;
-            --text-dark: #2C3E50;
+            --bg-body: #F7F9FC; /* Fundo Claro (Gelo) */
+            --bg-card: #FFFFFF; /* Cartão Branco */
+            --japan-red: #BC002D; /* Vermelho da Bandeira */
+            --text-dark: #2C3E50; /* Cinza Escuro (Leitura fácil) */
             --text-gray: #555555;
-            --green-zap: #25D366;
+            --green-zap: #25D366; /* Verde WhatsApp mantido */
             --border-light: #E0E0E0;
         }
 
@@ -50,7 +50,7 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* --- QUIZ --- */
+        /* --- ESTILOS DO QUIZ (CLEAN) --- */
         #landing-page { display: none; }
         
         #quiz-container {
@@ -70,6 +70,7 @@
             padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--border-light);
+            /* Sombra suave e elegante */
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             text-align: center;
         }
@@ -80,6 +81,7 @@
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 20px;
+            /* Imagem limpa, sem borda pesada */
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
@@ -94,6 +96,7 @@
             line-height: 1.3;
         }
 
+        /* BOTÕES DO QUIZ (CLEAN) */
         .quiz-btn {
             background: #FAFAFA;
             border: 1px solid var(--border-light);
@@ -114,7 +117,7 @@
         
         .quiz-btn:hover {
             border-color: var(--japan-red);
-            background: #FFF5F5;
+            background: #FFF5F5; /* Levemente avermelhado no hover */
             transform: translateX(3px);
             color: var(--japan-red);
         }
@@ -138,6 +141,7 @@
             color: #fff;
         }
 
+        /* BARRA DE PROGRESSO VERMELHA */
         .progress-container {
             width: 100%;
             background: #E0E0E0;
@@ -158,7 +162,7 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- LANDING PAGE --- */
+        /* --- ESTILOS DA LANDING PAGE (CLEAN) --- */
         h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 20px; color: var(--text-dark); text-transform: uppercase; letter-spacing: -1px; font-weight: 800; }
         h2 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 25px; line-height: 1.1; font-weight: 700; }
         h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 10px; }
@@ -166,6 +170,7 @@
         .red-text { color: var(--japan-red); font-weight: 800; }
         .sub-text { color: var(--text-gray); line-height: 1.5; margin-bottom: 30px; font-size: 1.1rem; }
 
+        /* Botão Destaque (Vermelho Japão - Apenas no Quiz) */
         .btn-highlight {
             background: var(--japan-red);
             color: #fff; font-weight: 800; padding: 22px; border-radius: 12px;
@@ -176,72 +181,74 @@
             cursor: pointer; border: none;
         }
 
+        /* Botão WhatsApp (Verde - Mantido) */
         .btn-whatsapp {
             background: var(--green-zap);
-            color: #fff; font-weight: 800; padding: 22px; border-radius: 12px;
-            display: block; width: 100%; text-align: center; text-transform: uppercase;
-            font-size: 1.1rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
-            margin: 25px auto; animation: pulse 2s infinite; border: none; cursor: pointer;
+            color: #fff; 
+            font-weight: 800; 
+            padding: 22px; 
+            border-radius: 12px;
+            display: block; 
+            width: 100%; 
+            text-align: center; 
+            text-transform: uppercase;
+            font-size: 1.1rem; 
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+            margin: 25px auto;
+            animation: pulse 2s infinite;
+            border: none;
+            cursor: pointer;
         }
         .btn-whatsapp:hover { transform: scale(1.02); }
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        /* --- CAPA DE VÍDEO INTELIGENTE --- */
+        /* PLAYER DE VÍDEO PADRÃO */
         .video-box {
             position: relative; max-width: 350px; aspect-ratio: 9/16; margin: 0 auto 30px auto;
-            background: #000; border-radius: 12px; overflow: hidden;
+            background: #000; border: none; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            cursor: pointer;
         }
         
-        .video-cover {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            z-index: 2; display: flex; align-items: center; justify-content: center;
-        }
-        
-        .play-btn {
-            width: 70px; height: 70px;
-            background: rgba(255, 0, 0, 0.9);
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
-        }
-        
-        .play-btn::before {
-            content: ''; position: absolute; top: 50%; left: 55%;
-            transform: translate(-50%, -50%);
-            border-left: 20px solid white;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-        }
-        
-        .video-box:hover .play-btn { transform: scale(1.1); }
-
-        /* Demais estilos */
         .carousel-container { margin: 50px 0; }
         .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
         .carousel-item { flex: 0 0 85%; scroll-snap-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; }
         .carousel::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        .alert-box { background: #FFF5F5; border: 1px solid #FFCDD2; border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center; }
-        .solution-box { background: #F0F8FF; border: 1px solid #B3E5FC; border-radius: 15px; padding: 25px; margin: 30px 0; text-align: left; }
+        /* Boxes Claros */
+        .alert-box { 
+            background: #FFF5F5; /* Fundo levemente vermelho */
+            border: 1px solid #FFCDD2; 
+            border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center; 
+        }
+        .solution-box { 
+            background: #F0F8FF; /* Fundo levemente azul */
+            border: 1px solid #B3E5FC; 
+            border-radius: 15px; padding: 25px; margin: 30px 0; text-align: left; 
+        }
         
         .item-list { font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: flex-start; gap: 10px; line-height: 1.3; color: var(--text-dark); }
-        .icon-check { color: #2196F3; font-size: 1.4rem; min-width: 25px; }
+        .icon-check { color: #2196F3; font-size: 1.4rem; min-width: 25px; } /* Azul Check */
         .icon-x { color: var(--japan-red); font-size: 1.4rem; min-width: 25px; }
 
         .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .speak-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
 
-        .price-box { background: #fff; color: var(--text-dark); padding: 30px 20px; border-radius: 20px; text-align: center; border: 3px solid var(--japan-red); margin-top: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        /* Oferta Clean */
+        .price-box { 
+            background: #fff; color: var(--text-dark); padding: 30px 20px; border-radius: 20px; 
+            text-align: center; border: 3px solid var(--japan-red); margin-top: 40px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
         .price-big { font-size: 3.8rem; font-weight: 800; color: var(--text-dark); margin: 10px 0; line-height: 1; }
+        
         .price-old { text-decoration: line-through; color: #999; font-size: 1.2rem; }
         .month-tag { background: var(--japan-red); color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+
         .benefit-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; color: var(--text-dark); }
 
+        /* FAQ Clean */
         details { background: #fff; margin-bottom: 10px; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
         summary { color: var(--text-dark); font-weight: 700; cursor: pointer; list-style: none; font-size: 1.1rem; }
         summary::after { content: '+'; float: right; color: var(--japan-red); font-weight:bold; }
@@ -269,6 +276,7 @@
                 <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 2 de 4</p>
                 <h2 class="quiz-question">O que o Japonês resolveria na sua vida hoje?</h2>
+                
                 <button class="quiz-btn" onclick="setUserProfile('estabilidade'); nextStep(3)"><span>A</span> Garantir meu emprego (concorrer com asiáticos).</button>
                 <button class="quiz-btn" onclick="setUserProfile('visto'); nextStep(3)"><span>B</span> Medo do governo/imigração (Visto e Impostos).</button>
                 <button class="quiz-btn" onclick="setUserProfile('comunicacao'); nextStep(3)"><span>C</span> Ter liberdade no dia a dia (Médico/Prefeitura).</button>
@@ -316,10 +324,17 @@
                 <p id="lp-sub" class="sub-text" data-aos="fade-up">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
             </header>
 
-            <div class="video-box" data-aos="zoom-in" onclick="playVideo(this, 'woVsa8iGmh4')">
-                <div class="video-cover" style="background-image: url('capa_vendas.jpg');">
-                    <div class="play-btn"></div>
-                </div>
+            <div class="video-box" data-aos="zoom-in">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/woVsa8iGmh4?rel=0&controls=1&modestbranding=1" 
+                    title="Vídeo de Vendas" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    style="border-radius: 12px; border: 1px solid #333;">
+                </iframe>
             </div>
 
             <div data-aos="fade-up" class="text-center">
@@ -339,6 +354,7 @@
             <div class="solution-box" data-aos="fade-up">
                 <h2 class="text-center"><span style="color:var(--text-dark);">A ÚNICA SAÍDA</span></h2>
                 <p class="text-center sub-text">Você precisa falar, não desenhar. Use o Método Romanizado.</p>
+                
                 <div style="margin-top:20px;">
                     <div class="item-list"><span class="icon-check">✓</span> ZERO KANJI, HIRAGANA E KATAKANA</div>
                     <div class="item-list"><span class="icon-check">✓</span> FALE EM TEMPO RECORDE</div>
@@ -373,8 +389,11 @@
                     <span class="month-tag">SÓ EM DEZEMBRO</span>
                     <p class="price-old">De: ¥15.500</p>
                     <p style="font-weight:700; margin-top:10px; color:var(--text-gray);">POR APENAS:</p>
+                    
                     <div class="price-big">¥5.500</div>
+                    
                     <p style="font-weight:600; color:#555; margin-bottom:20px;">PAGAMENTO ÚNICO</p>
+                    
                     <ul class="benefit-list" style="list-style:none; margin-bottom:20px; text-align:left; display:inline-block; padding:0;">
                         <li>✅ Acesso Vitalício</li>
                         <li>✅ 5 Ferramentas de IA Inclusas</li>
@@ -382,6 +401,7 @@
                         <li>✅ Acesso Imediato pelo Celular</li>
                         <li>✅ Aulas Curtas e Práticas</li>
                     </ul>
+
                     <a href="https://wa.me/818074558624?text=Olá%20,%20vi%20a%20promoção%20de%205.500%20e%20gostaria%20de%20tirar%20dúvidas." class="btn-whatsapp">
                         ✆ FALAR COM ATENDENTE
                     </a>
@@ -390,17 +410,20 @@
 
             <div style="margin-top:50px;">
                 <h2 class="text-center" style="margin-bottom:20px;">DÚVIDAS</h2>
+                
                 <details>
                     <summary>Serve para iniciante?</summary>
-                    <p>Sim! O método foi desenhado tanto para quem está no zero absoluto, quanto para quem já sabe o básico/intermediário.</p>
+                    <p>Sim! O método foi desenhado tanto para quem está no zero absoluto, quanto para quem já sabe o básico/intermediário. A estrutura é focada em prática, fazendo você <strong>progredir visivelmente a cada semana</strong> de estudo.</p>
                 </details>
+                
                 <details>
                     <summary>Tem mensalidade?</summary>
-                    <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--japan-red)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro.</p>
+                    <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--japan-red)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro. Depois volta ao valor normal de ¥15.500.</p>
                 </details>
+                
                 <details>
                     <summary>Como acesso?</summary>
-                    <p>Após a confirmação do pagamento, você recebe o acesso à plataforma imediatamente no seu e-mail.</p>
+                    <p>Após a confirmação do pagamento (seja via conta do correio ou cartão), você recebe o acesso à plataforma imediatamente no seu e-mail cadastrado.</p>
                 </details>
             </div>
 
@@ -408,10 +431,17 @@
                 <h2 style="color:var(--text-dark); margin-bottom: 10px;">VEJA POR DENTRO</h2>
                 <p class="sub-text">Simples, direta e fácil de usar no celular.</p>
                 
-                <div class="video-box" data-aos="zoom-in" onclick="playVideo(this, 'D-Emt15vXxw')">
-                    <div class="video-cover" style="background-image: url('capa_tour.jpg');">
-                        <div class="play-btn"></div>
-                    </div>
+                <div class="video-box" data-aos="zoom-in">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/D-Emt15vXxw?rel=0&controls=1&modestbranding=1" 
+                        title="Tour pela Plataforma" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        style="border-radius: 12px; border: 1px solid #333;">
+                    </iframe>
                 </div>
                 
                 <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20começar%20o%20curso%20agora." class="btn-whatsapp">
@@ -427,12 +457,8 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- FUNÇÃO PARA TOCAR VÍDEO (CAPA SOME AO CLICAR) ---
-        function playVideo(element, videoId) {
-            element.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&controls=1&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        }
-
-        // --- LÓGICA DE PERSONALIZAÇÃO ---
+        // --- LÓGICA DE PERSONALIZAÇÃO (IGUAL, MAS COM VISUAL NOVO) ---
+        
         let userProfile = 'visto';
 
         function setUserProfile(profile) {
@@ -448,15 +474,30 @@
             if (userProfile === 'estabilidade') {
                 headline.innerHTML = 'OS ASIÁTICOS <span class="red-text">VÃO ROUBAR SUA VAGA?</span>';
                 sub.innerHTML = 'Na fábrica, quem fala Japonês manda. Quem não fala, obedece (ou roda). Garanta sua estabilidade agora.';
-                probList.innerHTML = `<div class="item-list"><span class="icon-x">✕</span> DISPUTA COM VIETNAMITAS</div><div class="item-list"><span class="icon-x">✕</span> SALÁRIO ESTAGNADO</div><div class="item-list"><span class="icon-x">✕</span> RISCO DE CORTE</div>`;
+                probTitle.innerHTML = 'O QUE TE AMEAÇA HOJE:';
+                probList.innerHTML = `
+                    <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM VIETNAMITAS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> SALÁRIO ESTAGNADO</div>
+                    <div class="item-list"><span class="icon-x">✕</span> RISCO DE CORTE</div>
+                `;
             } else if (userProfile === 'visto') {
                 headline.innerHTML = 'O GOVERNO <span class="red-text">APERTOU O CERCO.</span>';
                 sub.innerHTML = 'Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo da imigração.';
-                probList.innerHTML = `<div class="item-list"><span class="icon-x">✕</span> VISTOS NEGADOS</div><div class="item-list"><span class="icon-x">✕</span> IMPOSTOS E BUROCRACIA</div><div class="item-list"><span class="icon-x">✕</span> INSEGURANÇA FAMILIAR</div>`;
+                probTitle.innerHTML = 'O RISCO É REAL:';
+                probList.innerHTML = `
+                    <div class="item-list"><span class="icon-x">✕</span> VISTOS NEGADOS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS E BUROCRACIA</div>
+                    <div class="item-list"><span class="icon-x">✕</span> INSEGURANÇA FAMILIAR</div>
+                `;
             } else {
                 headline.innerHTML = 'CANSADO DE <span class="red-text">DEPENDER DOS OUTROS?</span>';
                 sub.innerHTML = 'Chega de pagar intérprete ou travar no médico e na prefeitura. Seja independente de verdade.';
-                probList.innerHTML = `<div class="item-list"><span class="icon-x">✕</span> GASTOS COM INTÉRPRETE</div><div class="item-list"><span class="icon-x">✕</span> VERGONHA DE NÃO FALAR</div><div class="item-list"><span class="icon-x">✕</span> ISOLAMENTO SOCIAL</div>`;
+                probTitle.innerHTML = 'SUA REALIDADE HOJE:';
+                probList.innerHTML = `
+                    <div class="item-list"><span class="icon-x">✕</span> GASTOS COM INTÉRPRETE</div>
+                    <div class="item-list"><span class="icon-x">✕</span> VERGONHA DE NÃO FALAR</div>
+                    <div class="item-list"><span class="icon-x">✕</span> ISOLAMENTO SOCIAL</div>
+                `;
             }
         }
 
@@ -470,6 +511,7 @@
             const steps = document.querySelectorAll('.quiz-step');
             steps.forEach(s => s.classList.remove('active'));
             document.getElementById('step-loading').classList.add('active');
+
             const bar = document.getElementById('progress-bar');
             let width = 0;
             const interval = setInterval(() => {
