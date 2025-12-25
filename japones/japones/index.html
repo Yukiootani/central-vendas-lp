@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japonês Romanizado | Plano Personalizado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script>
@@ -24,24 +24,24 @@
     src="https://www.facebook.com/tr?id=1057042062998950&ev=PageView&noscript=1"
     /></noscript>
     <style>
-        /* --- ESTILO GERAL DARK PREMIUM --- */
+        /* --- ESTILO CLEAN JAPAN (BRANCO, VERMELHO E CINZA) --- */
         :root {
-            --bg-black: #050505;
-            --bg-card: #121212;
-            --gold: #D4AF37;
-            --gold-gradient: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
-            --green-zap: linear-gradient(90deg, #25D366, #128C7E);
-            --red-alert: #ff4444; 
-            --text-white: #ffffff;
-            --text-gray: #bbbbbb;
+            --bg-body: #F7F9FC; /* Fundo Claro (Gelo) */
+            --bg-card: #FFFFFF; /* Cartão Branco */
+            --japan-red: #BC002D; /* Vermelho da Bandeira */
+            --text-dark: #2C3E50; /* Cinza Escuro (Leitura fácil) */
+            --text-gray: #555555;
+            --green-zap: #25D366; /* Verde WhatsApp mantido */
+            --border-light: #E0E0E0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
+        
         html, body {
             max-width: 100%;
             overflow-x: hidden;
-            background-color: var(--bg-black);
-            color: var(--text-white);
+            background-color: var(--bg-body);
+            color: var(--text-dark);
         }
 
         img { max-width: 100%; display: block; border-radius: 8px; }
@@ -50,7 +50,7 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* --- ESTILOS DO QUIZ --- */
+        /* --- ESTILOS DO QUIZ (CLEAN) --- */
         #landing-page { display: none; }
         
         #quiz-container {
@@ -59,7 +59,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+            background: var(--bg-body);
             padding: 20px 0;
         }
 
@@ -69,8 +69,9 @@
             background: var(--bg-card);
             padding: 30px;
             border-radius: 20px;
-            border: 1px solid #333;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-light);
+            /* Sombra suave e elegante */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             text-align: center;
         }
 
@@ -80,9 +81,8 @@
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 20px;
-            border: 1px solid #333;
-            opacity: 0.95;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            /* Imagem limpa, sem borda pesada */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .quiz-step { display: none; animation: fadeIn 0.5s ease; }
@@ -92,90 +92,96 @@
             font-size: 1.3rem;
             font-weight: 800;
             margin-bottom: 25px;
-            color: #fff;
+            color: var(--text-dark);
             line-height: 1.3;
         }
 
+        /* BOTÕES DO QUIZ (CLEAN) */
         .quiz-btn {
-            background: transparent;
-            border: 1px solid #444;
-            color: #fff;
-            padding: 15px 20px;
+            background: #FAFAFA;
+            border: 1px solid var(--border-light);
+            color: var(--text-dark);
+            padding: 16px 20px;
             border-radius: 10px;
             width: 100%;
             margin-bottom: 12px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-align: left;
             display: flex;
             align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
         
         .quiz-btn:hover {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateX(5px);
+            border-color: var(--japan-red);
+            background: #FFF5F5; /* Levemente avermelhado no hover */
+            transform: translateX(3px);
+            color: var(--japan-red);
         }
 
         .quiz-btn span {
-            background: #333;
-            width: 30px;
-            height: 30px;
+            background: #EEEEEE;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             margin-right: 15px;
-            font-size: 0.8rem;
-            color: var(--gold);
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 800;
+        }
+        
+        .quiz-btn:hover span {
+            background: var(--japan-red);
+            color: #fff;
         }
 
+        /* BARRA DE PROGRESSO VERMELHA */
         .progress-container {
             width: 100%;
-            background: #222;
-            height: 10px;
-            border-radius: 5px;
+            background: #E0E0E0;
+            height: 8px;
+            border-radius: 4px;
             margin: 20px 0;
             overflow: hidden;
             position: relative;
         }
         .progress-bar {
             height: 100%;
-            background: var(--gold-gradient);
+            background: var(--japan-red);
             width: 0%;
             transition: width 0.1s linear;
         }
         
-        .analyzing-text { color: var(--gold); font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; }
+        .analyzing-text { color: var(--japan-red); font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- ESTILOS DA LANDING PAGE --- */
-        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: -1px; }
-        h2 { font-size: 2rem; color: #fff; margin-bottom: 25px; line-height: 1.1; }
-        h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+        /* --- ESTILOS DA LANDING PAGE (ADAPTADO PARA O CLARO) --- */
+        h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 20px; color: var(--text-dark); text-transform: uppercase; letter-spacing: -1px; font-weight: 800; }
+        h2 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 25px; line-height: 1.1; font-weight: 700; }
+        h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 10px; }
         
-        .gold-gradient-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        .red-text { color: var(--red-alert); font-weight: 800; }
-        .sub-text { color: var(--text-gray); line-height: 1.4; margin-bottom: 30px; font-size: 1.1rem; }
+        .red-text { color: var(--japan-red); font-weight: 800; }
+        .sub-text { color: var(--text-gray); line-height: 1.5; margin-bottom: 30px; font-size: 1.1rem; }
 
-        .btn-gold {
-            background: var(--gold-gradient);
-            color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
+        /* Botão Destaque (Vermelho Japão - Apenas no Quiz) */
+        .btn-highlight {
+            background: var(--japan-red);
+            color: #fff; font-weight: 800; padding: 22px; border-radius: 12px;
             display: block; width: 100%; text-align: center; text-transform: uppercase;
             font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); margin: 25px auto;
+            box-shadow: 0 4px 15px rgba(188, 0, 45, 0.3); margin: 25px auto;
             animation: pulse 2s infinite;
             cursor: pointer; border: none;
         }
 
+        /* Botão WhatsApp (Verde - Mantido) */
         .btn-whatsapp {
             background: var(--green-zap);
             color: #fff; 
@@ -191,7 +197,6 @@
             margin: 25px auto;
             animation: pulse 2s infinite;
             border: none;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             cursor: pointer;
         }
         .btn-whatsapp:hover { transform: scale(1.02); }
@@ -202,38 +207,53 @@
             position: relative; max-width: 350px; aspect-ratio: 9/16; margin: 0 auto 30px auto;
             background: #000; border: none; border-radius: 12px;
             display: flex; align-items: center; justify-content: center; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
         .carousel-container { margin: 50px 0; }
         .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
-        .carousel-item { flex: 0 0 85%; scroll-snap-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+        .carousel-item { flex: 0 0 85%; scroll-snap-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; }
         .carousel::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        .alert-box { background: rgba(255, 68, 68, 0.1); border: 1px solid var(--red-alert); border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center; }
-        .solution-box { background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); border-radius: 15px; padding: 25px; margin: 30px 0; text-align: left; }
+        /* Boxes Claros */
+        .alert-box { 
+            background: #FFF5F5; /* Fundo levemente vermelho */
+            border: 1px solid #FFCDD2; 
+            border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center; 
+        }
+        .solution-box { 
+            background: #F0F8FF; /* Fundo levemente azul */
+            border: 1px solid #B3E5FC; 
+            border-radius: 15px; padding: 25px; margin: 30px 0; text-align: left; 
+        }
         
-        .item-list { font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: flex-start; gap: 10px; line-height: 1.3; }
-        .icon-check { color: var(--gold); font-size: 1.4rem; min-width: 25px; }
-        .icon-x { color: var(--red-alert); font-size: 1.4rem; min-width: 25px; }
+        .item-list { font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; display: flex; align-items: flex-start; gap: 10px; line-height: 1.3; color: var(--text-dark); }
+        .icon-check { color: #2196F3; font-size: 1.4rem; min-width: 25px; } /* Azul Check */
+        .icon-x { color: var(--japan-red); font-size: 1.4rem; min-width: 25px; }
 
-        .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .team-box { text-align: center; margin: 50px 0; padding: 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .speak-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
 
-        .price-box { background: #fffdf5; color: #000; padding: 30px 20px; border-radius: 20px; text-align: center; border: 4px solid var(--gold); margin-top: 40px; }
-        .price-big { font-size: 3.8rem; font-weight: 800; color: #000; margin: 10px 0; line-height: 1; animation: flash-gold 1.5s infinite alternate; }
-        @keyframes flash-gold { 0% { color: #000; text-shadow: none; transform: scale(1); } 100% { color: #b8860b; text-shadow: 0 0 20px #FFD700; transform: scale(1.05); } }
-
-        .price-old { text-decoration: line-through; color: #888; font-size: 1.2rem; }
-        .month-tag { background: #000; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
-
-        .benefit-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-
-        details { background: #111; margin-bottom: 10px; padding: 20px; border-radius: 8px; border: 1px solid #333; }
-        summary { color: #fff; font-weight: 700; cursor: pointer; list-style: none; font-size: 1.1rem; }
-        summary::after { content: '+'; float: right; color: var(--gold); }
-        details p { color: #ccc; margin-top: 10px; line-height: 1.5; font-size: 0.95rem; }
+        /* Oferta Clean */
+        .price-box { 
+            background: #fff; color: var(--text-dark); padding: 30px 20px; border-radius: 20px; 
+            text-align: center; border: 3px solid var(--japan-red); margin-top: 40px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        .price-big { font-size: 3.8rem; font-weight: 800; color: var(--text-dark); margin: 10px 0; line-height: 1; }
         
-        footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; text-align: center; font-size: 0.9rem; color: #666; }
+        .price-old { text-decoration: line-through; color: #999; font-size: 1.2rem; }
+        .month-tag { background: var(--japan-red); color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+
+        .benefit-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 10px; color: var(--text-dark); }
+
+        /* FAQ Clean */
+        details { background: #fff; margin-bottom: 10px; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        summary { color: var(--text-dark); font-weight: 700; cursor: pointer; list-style: none; font-size: 1.1rem; }
+        summary::after { content: '+'; float: right; color: var(--japan-red); font-weight:bold; }
+        details p { color: var(--text-gray); margin-top: 10px; line-height: 1.5; font-size: 0.95rem; }
+        
+        footer { margin-top: 50px; padding: 20px; border-top: 1px solid #eee; text-align: center; font-size: 0.9rem; color: #888; }
     </style>
 </head>
 <body>
@@ -243,9 +263,9 @@
             
             <div class="quiz-step active" id="step-1">
                 <img src="IMG_6555.jpeg" class="quiz-img" alt="Caminho e Motivação">
-                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 1 de 4</p>
+                <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 1 de 4</p>
                 <h2 class="quiz-question">Você ainda lembra por que veio ao Japão?</h2>
-                <p style="color:#ccc; font-size:0.95rem; margin-bottom:20px;">Seja sincero, qual era seu maior objetivo no início?</p>
+                <p style="color:#666; font-size:0.95rem; margin-bottom:20px;">Seja sincero, qual era seu maior objetivo no início?</p>
                 
                 <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Juntar dinheiro para realizar um sonho (Casa/Negócio).</button>
                 <button class="quiz-btn" onclick="nextStep(2)"><span>B</span> Dar uma vida melhor para minha família.</button>
@@ -253,7 +273,7 @@
 
             <div class="quiz-step" id="step-2">
                 <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
-                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 2 de 4</p>
+                <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 2 de 4</p>
                 <h2 class="quiz-question">O que o Japonês resolveria na sua vida hoje?</h2>
                 
                 <button class="quiz-btn" onclick="setUserProfile('estabilidade'); nextStep(3)"><span>A</span> Garantir meu emprego (concorrer com asiáticos).</button>
@@ -263,7 +283,7 @@
 
             <div class="quiz-step" id="step-3">
                 <img src="IMG_6557.jpeg" class="quiz-img" alt="Dificuldade com Kanji">
-                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 3 de 4</p>
+                <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 3 de 4</p>
                 <h2 class="quiz-question">Você já tentou estudar antes?</h2>
                 <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas desisti por causa da escrita (Kanji).</button>
                 <button class="quiz-btn" onclick="nextStep(4)"><span>B</span> Nunca tentei, acho que não tenho tempo/cabeça.</button>
@@ -271,7 +291,7 @@
 
             <div class="quiz-step" id="step-4">
                 <img src="IMG_6558.jpeg" class="quiz-img" alt="Tempo passando">
-                <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta Final</p>
+                <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Última Etapa</p>
                 <h2 class="quiz-question">Se existisse um método só de FALA (sem escrita), quando você começaria?</h2>
                 <button class="quiz-btn" onclick="startAnalysis()"><span>A</span> Hoje mesmo (É o que preciso).</button>
                 <button class="quiz-btn" onclick="startAnalysis()"><span>B</span> Talvez mês que vem.</button>
@@ -286,10 +306,10 @@
             </div>
 
             <div class="quiz-step" id="step-result">
-                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg);" alt="Check">
-                <h2 class="quiz-question" style="color:var(--gold);">PERFIL APROVADO</h2>
-                <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5;">Baseado no seu objetivo, traçamos o <strong>caminho mais rápido</strong> para você falar japonês sem depender da escrita.</p>
-                <button class="btn-gold" onclick="revealLandingPage()">VER MEU PLANO</button>
+                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);" alt="Check Vermelho">
+                <h2 class="quiz-question" style="color:var(--japan-red); margin-top:15px;">PERFIL APROVADO</h2>
+                <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5; color:var(--text-gray);">Baseado no seu objetivo, traçamos o <strong>caminho mais rápido</strong> para você falar japonês sem depender da escrita.</p>
+                <button class="btn-highlight" onclick="revealLandingPage()">VER MEU PLANO</button>
             </div>
 
         </div>
@@ -298,9 +318,9 @@
         <div class="container">
             
             <header class="text-center">
-                <span style="color:var(--red-alert); font-size:0.9rem; letter-spacing:2px; font-weight:800; text-transform:uppercase;">⚠️ ALERTA AOS BRASILEIROS</span>
+                <span style="color:var(--japan-red); font-size:0.9rem; letter-spacing:2px; font-weight:800; text-transform:uppercase;">⚠️ ALERTA AOS BRASILEIROS</span>
                 <h1 id="lp-headline" data-aos="fade-up">O GOVERNO <span class="red-text">APERTOU O CERCO.</span></h1>
-                <p id="lp-sub" class="sub-text" data-aos="fade-up" style="font-size: 1.3rem; color: #fff;">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
+                <p id="lp-sub" class="sub-text" data-aos="fade-up">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
             </header>
 
             <div class="video-box" data-aos="zoom-in">
@@ -324,14 +344,14 @@
             </div>
 
             <div class="alert-box" data-aos="fade-up">
-                <h2 id="lp-problem-title" style="color:var(--red-alert);">O RISCO É REAL</h2>
+                <h2 id="lp-problem-title" style="color:var(--japan-red);">O RISCO É REAL</h2>
                 <div id="lp-problem-list" style="display:inline-block; text-align:left; margin-top:10px;">
                     </div>
-                <p style="margin-top:20px; font-size:1.1rem;">Você vai esperar o pior acontecer?</p>
+                <p style="margin-top:20px; font-size:1.1rem; color:var(--text-dark);">Você vai esperar o pior acontecer?</p>
             </div>
 
             <div class="solution-box" data-aos="fade-up">
-                <h2 class="text-center"><span class="gold-gradient-text">A ÚNICA SAÍDA</span></h2>
+                <h2 class="text-center"><span style="color:var(--text-dark);">A ÚNICA SAÍDA</span></h2>
                 <p class="text-center sub-text">Você precisa falar, não desenhar. Use o Método Romanizado.</p>
                 
                 <div style="margin-top:20px;">
@@ -346,17 +366,17 @@
                 <h3 class="text-center">QUEM SE PROTEGEU:</h3>
                 <p class="text-center sub-text" style="font-size:0.9rem;">Deslize para ver ➜</p>
                 <div class="carousel">
-                    <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
-                    <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
-                    <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
-                    <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/111/D4AF37?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6319.jpeg" alt="Depoimento 1" onerror="this.src='https://via.placeholder.com/300x500/eee/333?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6318.jpeg" alt="Depoimento 2" onerror="this.src='https://via.placeholder.com/300x500/eee/333?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6316.jpeg" alt="Depoimento 3" onerror="this.src='https://via.placeholder.com/300x500/eee/333?text=Depoimento'"></div>
+                    <div class="carousel-item"><img src="IMG_6317.jpeg" alt="Depoimento 4" onerror="this.src='https://via.placeholder.com/300x500/eee/333?text=Depoimento'"></div>
                 </div>
             </div>
 
             <div class="team-box" data-aos="fade-up">
                 <span class="speak-icon">💬</span>
-                <h3 class="gold-gradient-text">EQUIPE JAPONÊS ROMANIZADO</h3>
-                <p class="sub-text" style="margin-bottom:0; font-size: 1.1rem; color: #fff;">
+                <h3 style="color:var(--text-dark);">EQUIPE JAPONÊS ROMANIZADO</h3>
+                <p class="sub-text" style="margin-bottom:0; font-size: 1.1rem; color: var(--text-gray);">
                     Desenvolvemos o <strong>ÚNICO MÉTODO</strong> que elimina a barreira da escrita japonesa. 
                     <br><br>
                     Nossa tecnologia foca 100% na sua <strong>fala e audição</strong> para que você tenha fluência e segurança total, sem perder anos desenhando letras.
@@ -367,7 +387,7 @@
                 <div class="price-box">
                     <span class="month-tag">SÓ EM DEZEMBRO</span>
                     <p class="price-old">De: ¥15.500</p>
-                    <p style="font-weight:700; margin-top:10px;">POR APENAS:</p>
+                    <p style="font-weight:700; margin-top:10px; color:var(--text-gray);">POR APENAS:</p>
                     
                     <div class="price-big">¥5.500</div>
                     
@@ -397,7 +417,7 @@
                 
                 <details>
                     <summary>Tem mensalidade?</summary>
-                    <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--red-alert)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro. Depois volta ao valor normal de ¥15.500.</p>
+                    <p>Não! É pagamento único de ¥5.500. <br><strong style="color:var(--japan-red)">ATENÇÃO:</strong> Promoção válida somente até 31 de Dezembro. Depois volta ao valor normal de ¥15.500.</p>
                 </details>
                 
                 <details>
@@ -407,7 +427,7 @@
             </div>
 
             <section class="platform-video-section" style="margin-top: 60px; margin-bottom: 60px; text-align: center;" data-aos="fade-up">
-                <h2 class="gold-gradient-text" style="margin-bottom: 10px;">VEJA POR DENTRO</h2>
+                <h2 style="color:var(--text-dark); margin-bottom: 10px;">VEJA POR DENTRO</h2>
                 <p class="sub-text">Simples, direta e fácil de usar no celular.</p>
                 
                 <div class="video-box" data-aos="zoom-in">
@@ -436,51 +456,41 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- LÓGICA DE PERSONALIZAÇÃO (BASEADA NA PERGUNTA 2) ---
+        // --- LÓGICA DE PERSONALIZAÇÃO (IGUAL, MAS COM VISUAL NOVO) ---
         
-        let userProfile = 'visto'; // Padrão
+        let userProfile = 'visto';
 
         function setUserProfile(profile) {
             userProfile = profile;
-            console.log("Perfil definido: " + userProfile);
         }
 
         function personalizeLandingPage() {
-            // Elementos para mudar
             const headline = document.getElementById('lp-headline');
             const sub = document.getElementById('lp-sub');
             const probTitle = document.getElementById('lp-problem-title');
             const probList = document.getElementById('lp-problem-list');
 
-            // --- PERFIL 1: ESTABILIDADE / FÁBRICA ---
             if (userProfile === 'estabilidade') {
                 headline.innerHTML = 'OS ASIÁTICOS <span class="red-text">VÃO ROUBAR SUA VAGA?</span>';
                 sub.innerHTML = 'Na fábrica, quem fala Japonês manda. Quem não fala, obedece (ou roda). Garanta sua estabilidade agora.';
-                
                 probTitle.innerHTML = 'O QUE TE AMEAÇA HOJE:';
                 probList.innerHTML = `
                     <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM VIETNAMITAS</div>
                     <div class="item-list"><span class="icon-x">✕</span> SALÁRIO ESTAGNADO</div>
                     <div class="item-list"><span class="icon-x">✕</span> RISCO DE CORTE</div>
                 `;
-            
-            // --- PERFIL 2: VISTO / GOVERNO (Medo) ---
             } else if (userProfile === 'visto') {
                 headline.innerHTML = 'O GOVERNO <span class="red-text">APERTOU O CERCO.</span>';
                 sub.innerHTML = 'Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo da imigração.';
-                
                 probTitle.innerHTML = 'O RISCO É REAL:';
                 probList.innerHTML = `
                     <div class="item-list"><span class="icon-x">✕</span> VISTOS NEGADOS</div>
                     <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS E BUROCRACIA</div>
                     <div class="item-list"><span class="icon-x">✕</span> INSEGURANÇA FAMILIAR</div>
                 `;
-
-            // --- PERFIL 3: COMUNICAÇÃO / DIA A DIA ---
             } else {
                 headline.innerHTML = 'CANSADO DE <span class="red-text">DEPENDER DOS OUTROS?</span>';
                 sub.innerHTML = 'Chega de pagar intérprete ou travar no médico e na prefeitura. Seja independente de verdade.';
-                
                 probTitle.innerHTML = 'SUA REALIDADE HOJE:';
                 probList.innerHTML = `
                     <div class="item-list"><span class="icon-x">✕</span> GASTOS COM INTÉRPRETE</div>
@@ -489,7 +499,6 @@
                 `;
             }
         }
-        // --------------------------------
 
         function nextStep(stepNumber) {
             const steps = document.querySelectorAll('.quiz-step');
@@ -521,24 +530,17 @@
         }
 
         function revealLandingPage() {
-            // CHAMA A PERSONALIZAÇÃO ANTES DE ABRIR A LP
             personalizeLandingPage();
-
             const quizContainer = document.getElementById('quiz-container');
             const landingPage = document.getElementById('landing-page');
-
             quizContainer.style.opacity = '0';
             quizContainer.style.transition = 'opacity 0.5s ease';
-
             setTimeout(() => {
                 quizContainer.style.display = 'none';
                 landingPage.style.display = 'block';
                 AOS.init({ duration: 800, once: true });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                if(typeof fbq === 'function') {
-                    fbq('track', 'Lead'); 
-                }
+                if(typeof fbq === 'function') { fbq('track', 'Lead'); }
             }, 500);
         }
     </script>
