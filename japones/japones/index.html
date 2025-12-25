@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japonês Romanizado | Análise de Perfil</title>
+    <title>Japonês Romanizado | Atendimento</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -24,12 +24,13 @@
     src="https://www.facebook.com/tr?id=1057042062998950&ev=PageView&noscript=1"
     /></noscript>
     <style>
-        /* --- ESTILO GERAL DARK PREMIUM (COMPARTILHADO) --- */
+        /* --- ESTILO GERAL DARK PREMIUM --- */
         :root {
             --bg-black: #050505;
             --bg-card: #121212;
             --gold: #D4AF37;
             --gold-gradient: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
+            --green-zap: linear-gradient(90deg, #25D366, #128C7E); /* NOVO VERDE */
             --red-alert: #ff4444; 
             --text-white: #ffffff;
             --text-gray: #bbbbbb;
@@ -50,8 +51,8 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* --- ESTILOS EXCLUSIVOS DO QUIZ --- */
-        #landing-page { display: none; /* Oculto inicialmente */ }
+        /* --- ESTILOS DO QUIZ --- */
+        #landing-page { display: none; }
         
         #quiz-container {
             min-height: 100vh;
@@ -120,7 +121,6 @@
             color: var(--gold);
         }
 
-        /* Barra de Progresso do Quiz */
         .progress-container {
             width: 100%;
             background: #222;
@@ -137,16 +137,11 @@
             transition: width 0.1s linear;
         }
         
-        .analyzing-text {
-            color: var(--gold);
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+        .analyzing-text { color: var(--gold); font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- ESTILOS DA LANDING PAGE (MANTIDOS) --- */
+        /* --- ESTILOS DA LANDING PAGE --- */
         h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: -1px; }
         h2 { font-size: 2rem; color: #fff; margin-bottom: 25px; line-height: 1.1; }
         h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
@@ -160,6 +155,7 @@
         .red-text { color: var(--red-alert); font-weight: 800; }
         .sub-text { color: var(--text-gray); line-height: 1.4; margin-bottom: 30px; font-size: 1.1rem; }
 
+        /* BOTÃO DOURADO (Apenas para o Quiz interno) */
         .btn-gold {
             background: var(--gold-gradient);
             color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
@@ -169,6 +165,27 @@
             animation: pulse 2s infinite;
             cursor: pointer; border: none;
         }
+
+        /* NOVO BOTÃO WHATSAPP (VERDE) */
+        .btn-whatsapp {
+            background: var(--green-zap);
+            color: #fff; /* Texto Branco */
+            font-weight: 800; 
+            padding: 22px; 
+            border-radius: 12px;
+            display: block; 
+            width: 100%; 
+            text-align: center; 
+            text-transform: uppercase;
+            font-size: 1.1rem; /* Um pouco menor para caber textos maiores */
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+            margin: 25px auto;
+            animation: pulse 2s infinite;
+            border: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
         .video-box {
@@ -283,8 +300,10 @@
             </div>
 
             <div data-aos="fade-up" class="text-center">
-                <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold">QUERO ME PROTEGER</a>
-                <p style="font-size:0.9rem; color:#888;">🔒 Acesso Imediato e Seguro</p>
+                <a href="https://wa.me/818074558624?text=Olá%20,%20fiz%20o%20quiz%20e%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-whatsapp">
+                    ✆ MAIS INFORMAÇÕES NO WHATSAPP
+                </a>
+                <p style="font-size:0.9rem; color:#888;">🔒 Converse com um ser humano</p>
             </div>
 
             <div class="alert-box" data-aos="fade-up">
@@ -348,7 +367,9 @@
                         <li>✅ Aulas Curtas e Práticas</li>
                     </ul>
 
-                    <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold" style="border:2px solid #000; box-shadow:none;">GARANTIR VAGA AGORA</a>
+                    <a href="https://wa.me/818074558624?text=Olá%20,%20vi%20a%20promoção%20de%205.500%20e%20gostaria%20de%20tirar%20dúvidas." class="btn-whatsapp">
+                        ✆ FALAR COM ATENDENTE
+                    </a>
                 </div>
             </div>
 
@@ -388,7 +409,9 @@
                     </iframe>
                 </div>
                 
-                <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20mais%20informações%20sobre%20o%20curso%20." class="btn-gold">QUERO COMEÇAR AGORA</a>
+                <a href="https://wa.me/818074558624?text=Olá%20,%20gostaria%20de%20começar%20o%20curso%20agora." class="btn-whatsapp">
+                    ✆ QUERO COMEÇAR AGORA
+                </a>
             </section>
 
             <footer>
@@ -400,33 +423,27 @@
     <script>
         // Lógica do Quiz
         function nextStep(stepNumber) {
-            // Esconde todos
             const steps = document.querySelectorAll('.quiz-step');
             steps.forEach(s => s.classList.remove('active'));
-            
-            // Mostra o próximo
             document.getElementById('step-' + stepNumber).classList.add('active');
         }
 
         function startAnalysis() {
-            // Vai para a tela de loading
             const steps = document.querySelectorAll('.quiz-step');
             steps.forEach(s => s.classList.remove('active'));
             document.getElementById('step-loading').classList.add('active');
 
-            // Anima a barra
             const bar = document.getElementById('progress-bar');
             let width = 0;
             const interval = setInterval(() => {
                 if (width >= 100) {
                     clearInterval(interval);
-                    // Quando terminar, mostra o resultado
                     showResult();
                 } else {
                     width++;
                     bar.style.width = width + '%';
                 }
-            }, 30); // 3 segundos total (30ms * 100)
+            }, 30);
         }
 
         function showResult() {
@@ -435,7 +452,6 @@
         }
 
         function revealLandingPage() {
-            // Fade out do quiz e Fade in da Landing Page
             const quizContainer = document.getElementById('quiz-container');
             const landingPage = document.getElementById('landing-page');
 
@@ -445,19 +461,12 @@
             setTimeout(() => {
                 quizContainer.style.display = 'none';
                 landingPage.style.display = 'block';
-                
-                // Inicia as animações da Landing Page APENAS agora
-                // para evitar conflitos de posicionamento
                 AOS.init({ duration: 800, once: true });
-                
-                // Rola para o topo suavemente
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
-                // Dispara evento pro Facebook Pixel (Opcional: Lead Qualificado)
                 if(typeof fbq === 'function') {
                     fbq('track', 'Lead'); 
                 }
-
             }, 500);
         }
     </script>
