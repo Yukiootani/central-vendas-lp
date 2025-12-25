@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japonês Romanizado | Atendimento</title>
+    <title>Japonês Romanizado | Análise de Perfil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -30,7 +30,7 @@
             --bg-card: #121212;
             --gold: #D4AF37;
             --gold-gradient: linear-gradient(90deg, #F2C94C, #D4AF37, #B8860B);
-            --green-zap: linear-gradient(90deg, #25D366, #128C7E); /* NOVO VERDE */
+            --green-zap: linear-gradient(90deg, #25D366, #128C7E);
             --red-alert: #ff4444; 
             --text-white: #ffffff;
             --text-gray: #bbbbbb;
@@ -61,6 +61,7 @@
             justify-content: center;
             align-items: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+            padding: 20px 0;
         }
 
         .quiz-card {
@@ -74,11 +75,23 @@
             text-align: center;
         }
 
+        /* IMAGEM DO QUIZ */
+        .quiz-img {
+            width: 100%;
+            height: 180px; /* Altura ajustada para destacar as imagens */
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            opacity: 0.95;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
         .quiz-step { display: none; animation: fadeIn 0.5s ease; }
         .quiz-step.active { display: block; }
 
         .quiz-question {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
             margin-bottom: 25px;
             color: #fff;
@@ -92,7 +105,7 @@
             padding: 15px 20px;
             border-radius: 10px;
             width: 100%;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
@@ -155,7 +168,7 @@
         .red-text { color: var(--red-alert); font-weight: 800; }
         .sub-text { color: var(--text-gray); line-height: 1.4; margin-bottom: 30px; font-size: 1.1rem; }
 
-        /* BOTÃO DOURADO (Apenas para o Quiz interno) */
+        /* Botão Dourado (Apenas para o Quiz) */
         .btn-gold {
             background: var(--gold-gradient);
             color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
@@ -166,10 +179,10 @@
             cursor: pointer; border: none;
         }
 
-        /* NOVO BOTÃO WHATSAPP (VERDE) */
+        /* Botão WhatsApp (Verde - Landing Page) */
         .btn-whatsapp {
             background: var(--green-zap);
-            color: #fff; /* Texto Branco */
+            color: #fff; 
             font-weight: 800; 
             padding: 22px; 
             border-radius: 12px;
@@ -177,7 +190,7 @@
             width: 100%; 
             text-align: center; 
             text-transform: uppercase;
-            font-size: 1.1rem; /* Um pouco menor para caber textos maiores */
+            font-size: 1.1rem; 
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
             margin: 25px auto;
             animation: pulse 2s infinite;
@@ -232,6 +245,8 @@
         <div class="quiz-card">
             
             <div class="quiz-step active" id="step-1">
+                <img src="IMG_6555.jpeg" class="quiz-img" alt="Escolha seu caminho">
+                
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 1 de 4</p>
                 <h2 class="quiz-question">Qual tipo de brasileiro você é no Japão?</h2>
                 <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Acho que não preciso aprender, uso intérpretes.</button>
@@ -239,6 +254,8 @@
             </div>
 
             <div class="quiz-step" id="step-2">
+                <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
+
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 2 de 4</p>
                 <h2 class="quiz-question">Por que o japonês seria útil para você hoje?</h2>
                 <button class="quiz-btn" onclick="nextStep(3)"><span>A</span> Ter estabilidade (concorrer com asiáticos).</button>
@@ -247,6 +264,8 @@
             </div>
 
             <div class="quiz-step" id="step-3">
+                <img src="IMG_6557.jpeg" class="quiz-img" alt="Dificuldade com Kanji">
+
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 3 de 4</p>
                 <h2 class="quiz-question">Você já tentou algum método antes?</h2>
                 <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
@@ -254,6 +273,8 @@
             </div>
 
             <div class="quiz-step" id="step-4">
+                <img src="IMG_6558.jpeg" class="quiz-img" alt="Tempo passando">
+
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta Final</p>
                 <h2 class="quiz-question">Se existisse um método 100% focado na fala (sem escrita), quando você começaria?</h2>
                 <button class="quiz-btn" onclick="startAnalysis()"><span>A</span> Imediatamente (É o que preciso).</button>
@@ -269,7 +290,7 @@
             </div>
 
             <div class="quiz-step" id="step-result">
-                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg);" alt="Check">
+                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg); border:none; box-shadow:none; opacity:1;" alt="Check">
                 <h2 class="quiz-question" style="color:var(--gold);">PERFIL APROVADO</h2>
                 <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5;">Baseado nas suas respostas, encontramos a <strong>estratégia exata</strong> para você sair do zero e falar japonês sem depender da escrita.</p>
                 <button class="btn-gold" onclick="revealLandingPage()">VER MINHA RECOMENDAÇÃO</button>
