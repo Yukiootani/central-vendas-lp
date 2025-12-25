@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japonês Romanizado | Análise de Perfil</title>
+    <title>Japonês Romanizado | Plano Personalizado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -36,7 +36,6 @@
             --text-gray: #bbbbbb;
         }
 
-        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
         html, body {
             max-width: 100%;
@@ -75,10 +74,9 @@
             text-align: center;
         }
 
-        /* IMAGEM DO QUIZ */
         .quiz-img {
             width: 100%;
-            height: 180px; /* Altura ajustada para destacar as imagens */
+            height: 180px; 
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 20px;
@@ -168,7 +166,6 @@
         .red-text { color: var(--red-alert); font-weight: 800; }
         .sub-text { color: var(--text-gray); line-height: 1.4; margin-bottom: 30px; font-size: 1.1rem; }
 
-        /* Botão Dourado (Apenas para o Quiz) */
         .btn-gold {
             background: var(--gold-gradient);
             color: #000; font-weight: 800; padding: 22px; border-radius: 12px;
@@ -179,7 +176,6 @@
             cursor: pointer; border: none;
         }
 
-        /* Botão WhatsApp (Verde - Landing Page) */
         .btn-whatsapp {
             background: var(--green-zap);
             color: #fff; 
@@ -198,6 +194,7 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             cursor: pointer;
         }
+        .btn-whatsapp:hover { transform: scale(1.02); }
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
@@ -246,7 +243,6 @@
             
             <div class="quiz-step active" id="step-1">
                 <img src="IMG_6555.jpeg" class="quiz-img" alt="Escolha seu caminho">
-                
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 1 de 4</p>
                 <h2 class="quiz-question">Qual tipo de brasileiro você é no Japão?</h2>
                 <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Acho que não preciso aprender, uso intérpretes.</button>
@@ -255,7 +251,6 @@
 
             <div class="quiz-step" id="step-2">
                 <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
-
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 2 de 4</p>
                 <h2 class="quiz-question">Por que o japonês seria útil para você hoje?</h2>
                 <button class="quiz-btn" onclick="nextStep(3)"><span>A</span> Ter estabilidade (concorrer com asiáticos).</button>
@@ -265,16 +260,14 @@
 
             <div class="quiz-step" id="step-3">
                 <img src="IMG_6557.jpeg" class="quiz-img" alt="Dificuldade com Kanji">
-
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 3 de 4</p>
                 <h2 class="quiz-question">Você já tentou algum método antes?</h2>
-                <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
-                <button class="quiz-btn" onclick="nextStep(4)"><span>B</span> Nunca tentei, acho muito difícil.</button>
+                <button class="quiz-btn" onclick="setUserProfile('travado'); nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
+                <button class="quiz-btn" onclick="setUserProfile('iniciante'); nextStep(4)"><span>B</span> Nunca tentei, acho muito difícil.</button>
             </div>
 
             <div class="quiz-step" id="step-4">
                 <img src="IMG_6558.jpeg" class="quiz-img" alt="Tempo passando">
-
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta Final</p>
                 <h2 class="quiz-question">Se existisse um método 100% focado na fala (sem escrita), quando você começaria?</h2>
                 <button class="quiz-btn" onclick="startAnalysis()"><span>A</span> Imediatamente (É o que preciso).</button>
@@ -290,7 +283,7 @@
             </div>
 
             <div class="quiz-step" id="step-result">
-                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg); border:none; box-shadow:none; opacity:1;" alt="Check">
+                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg);" alt="Check">
                 <h2 class="quiz-question" style="color:var(--gold);">PERFIL APROVADO</h2>
                 <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5;">Baseado nas suas respostas, encontramos a <strong>estratégia exata</strong> para você sair do zero e falar japonês sem depender da escrita.</p>
                 <button class="btn-gold" onclick="revealLandingPage()">VER MINHA RECOMENDAÇÃO</button>
@@ -303,8 +296,8 @@
             
             <header class="text-center">
                 <span style="color:var(--red-alert); font-size:0.9rem; letter-spacing:2px; font-weight:800; text-transform:uppercase;">⚠️ ALERTA AOS BRASILEIROS</span>
-                <h1 data-aos="fade-up">O GOVERNO <span class="red-text">APERTOU O CERCO.</span></h1>
-                <p class="sub-text" data-aos="fade-up" style="font-size: 1.3rem; color: #fff;">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
+                <h1 id="lp-headline" data-aos="fade-up">O GOVERNO <span class="red-text">APERTOU O CERCO.</span></h1>
+                <p id="lp-sub" class="sub-text" data-aos="fade-up" style="font-size: 1.3rem; color: #fff;">Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo.</p>
             </header>
 
             <div class="video-box" data-aos="zoom-in">
@@ -328,12 +321,9 @@
             </div>
 
             <div class="alert-box" data-aos="fade-up">
-                <h2 style="color:var(--red-alert);">O RISCO É REAL</h2>
-                <div style="display:inline-block; text-align:left; margin-top:10px;">
-                    <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS MAIS CAROS</div>
-                    <div class="item-list"><span class="icon-x">✕</span> DISPUTA COM ASIÁTICOS</div>
-                    <div class="item-list"><span class="icon-x">✕</span> VISTOS EM PERIGO</div>
-                </div>
+                <h2 id="lp-problem-title" style="color:var(--red-alert);">O RISCO É REAL</h2>
+                <div id="lp-problem-list" style="display:inline-block; text-align:left; margin-top:10px;">
+                    </div>
                 <p style="margin-top:20px; font-size:1.1rem;">Você vai esperar o pior acontecer?</p>
             </div>
 
@@ -440,9 +430,52 @@
             </footer>
         </div>
     </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Lógica do Quiz
+        // --- LÓGICA DE PERSONALIZAÇÃO ---
+        
+        let userProfile = 'iniciante'; // Padrão
+
+        function setUserProfile(profile) {
+            userProfile = profile;
+            console.log("Perfil definido: " + userProfile);
+        }
+
+        function personalizeLandingPage() {
+            // Elementos para mudar
+            const headline = document.getElementById('lp-headline');
+            const sub = document.getElementById('lp-sub');
+            const probTitle = document.getElementById('lp-problem-title');
+            const probList = document.getElementById('lp-problem-list');
+
+            // --- CENÁRIO A: TRAVADO NO KANJI ---
+            if (userProfile === 'travado') {
+                headline.innerHTML = 'VOCÊ SABE FALAR, <span class="red-text">SÓ NÃO SABE LER?</span>';
+                sub.innerHTML = 'Você não precisa desenhar Kanji para ser fluente. Destrave seu japonês com o método Romanizado.';
+                
+                probTitle.innerHTML = 'POR QUE VOCÊ TRAVOU:';
+                probList.innerHTML = `
+                    <div class="item-list"><span class="icon-x">✕</span> METODOLOGIA TRADICIONAL LENTA</div>
+                    <div class="item-list"><span class="icon-x">✕</span> EXIGÊNCIA DE KANJI E HIRAGANA</div>
+                    <div class="item-list"><span class="icon-x">✕</span> FOCO EM ESCRITA, NÃO NA FALA</div>
+                `;
+            
+            // --- CENÁRIO B: INICIANTE / MEDO ---
+            } else {
+                headline.innerHTML = 'FALAR JAPONÊS É <span class="red-text">MAIS FÁCIL DO QUE PARECE.</span>';
+                sub.innerHTML = 'Esqueça os métodos difíceis. Comece do zero e fale suas primeiras frases na primeira semana.';
+                
+                probTitle.innerHTML = 'O QUE TE IMPEDE HOJE:';
+                probList.innerHTML = `
+                    <div class="item-list"><span class="icon-x">✕</span> MEDO DE SER DIFÍCIL</div>
+                    <div class="item-list"><span class="icon-x">✕</span> ACHAR QUE DEMORA ANOS</div>
+                    <div class="item-list"><span class="icon-x">✕</span> NÃO SABER POR ONDE COMEÇAR</div>
+                `;
+            }
+        }
+        // --------------------------------
+
         function nextStep(stepNumber) {
             const steps = document.querySelectorAll('.quiz-step');
             steps.forEach(s => s.classList.remove('active'));
@@ -473,6 +506,9 @@
         }
 
         function revealLandingPage() {
+            // CHAMA A PERSONALIZAÇÃO ANTES DE ABRIR
+            personalizeLandingPage();
+
             const quizContainer = document.getElementById('quiz-container');
             const landingPage = document.getElementById('landing-page');
 
