@@ -242,39 +242,39 @@
         <div class="quiz-card">
             
             <div class="quiz-step active" id="step-1">
-                <img src="IMG_6555.jpeg" class="quiz-img" alt="Escolha seu caminho">
+                <img src="IMG_6555.jpeg" class="quiz-img" alt="Caminho e Motivação">
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 1 de 4</p>
-                <h2 class="quiz-question">Qual tipo de brasileiro você é no Japão?</h2>
-                <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Acho que não preciso aprender, uso intérpretes.</button>
-                <button class="quiz-btn" onclick="nextStep(2)"><span>B</span> Quero aprender para ser independente.</button>
+                <h2 class="quiz-question">Você ainda lembra por que veio ao Japão?</h2>
+                <p style="color:#ccc; font-size:0.95rem; margin-bottom:20px;">Seja sincero, qual era seu maior objetivo no início?</p>
+                
+                <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Juntar dinheiro para realizar um sonho (Casa/Negócio).</button>
+                <button class="quiz-btn" onclick="nextStep(2)"><span>B</span> Dar uma vida melhor para minha família.</button>
             </div>
 
             <div class="quiz-step" id="step-2">
                 <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 2 de 4</p>
-                <h2 class="quiz-question">Por que o japonês seria útil para você hoje?</h2>
+                <h2 class="quiz-question">O que o Japonês resolveria na sua vida hoje?</h2>
                 
-                <button class="quiz-btn" onclick="setUserProfile('estabilidade'); nextStep(3)"><span>A</span> Ter estabilidade (concorrer com asiáticos).</button>
-                
-                <button class="quiz-btn" onclick="setUserProfile('visto'); nextStep(3)"><span>B</span> Medo do governo pedir na renovação do visto.</button>
-                
-                <button class="quiz-btn" onclick="setUserProfile('comunicacao'); nextStep(3)"><span>C</span> Me comunicar melhor no dia a dia.</button>
+                <button class="quiz-btn" onclick="setUserProfile('estabilidade'); nextStep(3)"><span>A</span> Garantir meu emprego (concorrer com asiáticos).</button>
+                <button class="quiz-btn" onclick="setUserProfile('visto'); nextStep(3)"><span>B</span> Medo do governo/imigração (Visto e Impostos).</button>
+                <button class="quiz-btn" onclick="setUserProfile('comunicacao'); nextStep(3)"><span>C</span> Ter liberdade no dia a dia (Médico/Prefeitura).</button>
             </div>
 
             <div class="quiz-step" id="step-3">
                 <img src="IMG_6557.jpeg" class="quiz-img" alt="Dificuldade com Kanji">
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta 3 de 4</p>
-                <h2 class="quiz-question">Você já tentou algum método antes?</h2>
-                <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas travei na escrita (Kanji).</button>
-                <button class="quiz-btn" onclick="nextStep(4)"><span>B</span> Nunca tentei, acho muito difícil.</button>
+                <h2 class="quiz-question">Você já tentou estudar antes?</h2>
+                <button class="quiz-btn" onclick="nextStep(4)"><span>A</span> Sim, mas desisti por causa da escrita (Kanji).</button>
+                <button class="quiz-btn" onclick="nextStep(4)"><span>B</span> Nunca tentei, acho que não tenho tempo/cabeça.</button>
             </div>
 
             <div class="quiz-step" id="step-4">
                 <img src="IMG_6558.jpeg" class="quiz-img" alt="Tempo passando">
                 <p style="color:var(--gold); font-size:0.9rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">Pergunta Final</p>
-                <h2 class="quiz-question">Se existisse um método 100% focado na fala (sem escrita), quando você começaria?</h2>
-                <button class="quiz-btn" onclick="startAnalysis()"><span>A</span> Imediatamente (É o que preciso).</button>
-                <button class="quiz-btn" onclick="startAnalysis()"><span>B</span> Talvez no mês que vem.</button>
+                <h2 class="quiz-question">Se existisse um método só de FALA (sem escrita), quando você começaria?</h2>
+                <button class="quiz-btn" onclick="startAnalysis()"><span>A</span> Hoje mesmo (É o que preciso).</button>
+                <button class="quiz-btn" onclick="startAnalysis()"><span>B</span> Talvez mês que vem.</button>
             </div>
 
             <div class="quiz-step" id="step-loading">
@@ -288,8 +288,8 @@
             <div class="quiz-step" id="step-result">
                 <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" style="width:60px; margin:0 auto 20px auto; filter: invert(80%) sepia(50%) saturate(500%) hue-rotate(5deg);" alt="Check">
                 <h2 class="quiz-question" style="color:var(--gold);">PERFIL APROVADO</h2>
-                <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5;">Baseado nas suas respostas, encontramos a <strong>estratégia exata</strong> para você sair do zero e falar japonês sem depender da escrita.</p>
-                <button class="btn-gold" onclick="revealLandingPage()">VER MINHA RECOMENDAÇÃO</button>
+                <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.5;">Baseado no seu objetivo, traçamos o <strong>caminho mais rápido</strong> para você falar japonês sem depender da escrita.</p>
+                <button class="btn-gold" onclick="revealLandingPage()">VER MEU PLANO</button>
             </div>
 
         </div>
@@ -436,7 +436,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- LÓGICA DE PERSONALIZAÇÃO (AGORA BASEADA NA PERGUNTA 2) ---
+        // --- LÓGICA DE PERSONALIZAÇÃO (BASEADA NA PERGUNTA 2) ---
         
         let userProfile = 'visto'; // Padrão
 
