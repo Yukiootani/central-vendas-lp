@@ -26,12 +26,12 @@
     <style>
         /* --- ESTILO CLEAN JAPAN (BRANCO, VERMELHO E CINZA) --- */
         :root {
-            --bg-body: #F7F9FC;
-            --bg-card: #FFFFFF;
-            --japan-red: #BC002D;
-            --text-dark: #2C3E50;
+            --bg-body: #F7F9FC; /* Fundo Claro (Gelo) */
+            --bg-card: #FFFFFF; /* Cartão Branco */
+            --japan-red: #BC002D; /* Vermelho da Bandeira */
+            --text-dark: #2C3E50; /* Cinza Escuro (Leitura fácil) */
             --text-gray: #555555;
-            --green-zap: #25D366;
+            --green-zap: #25D366; /* Verde WhatsApp mantido */
             --border-light: #E0E0E0;
         }
 
@@ -242,7 +242,8 @@
             </div>
 
             <div class="quiz-step" id="step-2">
-                <img src="IMG_6556.jpeg" class="quiz-img" alt="Abrindo oportunidades">
+                <video src="sora-video-s_694e190955b8819183d3f4e1efed1c39-2025-12-26.mov" class="quiz-img" autoplay loop muted playsinline></video>
+                
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 2 de 4</p>
                 <h2 class="quiz-question">O que o Japonês resolveria na sua vida hoje?</h2>
                 <button class="quiz-btn" onclick="setUserProfile('estabilidade'); nextStep(3)"><span>A</span> Garantir meu emprego (concorrer com asiáticos).</button>
