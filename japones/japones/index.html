@@ -70,7 +70,6 @@
             padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--border-light);
-            /* Sombra suave e elegante */
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             text-align: center;
         }
@@ -81,7 +80,6 @@
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 20px;
-            /* Imagem limpa, sem borda pesada */
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
@@ -117,7 +115,7 @@
         
         .quiz-btn:hover {
             border-color: var(--japan-red);
-            background: #FFF5F5; /* Levemente avermelhado no hover */
+            background: #FFF5F5;
             transform: translateX(3px);
             color: var(--japan-red);
         }
@@ -326,9 +324,10 @@
 
             <div class="video-box" data-aos="zoom-in">
                 <iframe 
+                    id="sales-video"
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/woVsa8iGmh4?rel=0&controls=1&modestbranding=1" 
+                    src="https://www.youtube.com/embed/i_UsAmdz6T4?rel=0&controls=1&modestbranding=1" 
                     title="Vídeo de Vendas" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -457,7 +456,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- LÓGICA DE PERSONALIZAÇÃO (IGUAL, MAS COM VISUAL NOVO) ---
+        // --- LÓGICA DE PERSONALIZAÇÃO (VISUAL NOVO + VÍDEO NOVO) ---
         
         let userProfile = 'visto';
 
@@ -470,7 +469,11 @@
             const sub = document.getElementById('lp-sub');
             const probTitle = document.getElementById('lp-problem-title');
             const probList = document.getElementById('lp-problem-list');
+            const salesVideo = document.getElementById('sales-video');
 
+            let videoId = '';
+
+            // --- 1. ESTABILIDADE (FÁBRICA) ---
             if (userProfile === 'estabilidade') {
                 headline.innerHTML = 'OS ASIÁTICOS <span class="red-text">VÃO ROUBAR SUA VAGA?</span>';
                 sub.innerHTML = 'Na fábrica, quem fala Japonês manda. Quem não fala, obedece (ou roda). Garanta sua estabilidade agora.';
@@ -480,6 +483,9 @@
                     <div class="item-list"><span class="icon-x">✕</span> SALÁRIO ESTAGNADO</div>
                     <div class="item-list"><span class="icon-x">✕</span> RISCO DE CORTE</div>
                 `;
+                videoId = 'eLaIM9xQjI0';
+
+            // --- 2. VISTO (MEDO/GOVERNO) ---
             } else if (userProfile === 'visto') {
                 headline.innerHTML = 'O GOVERNO <span class="red-text">APERTOU O CERCO.</span>';
                 sub.innerHTML = 'Fiscalização em cima. Vistos em risco. Quem não fala Japonês virou alvo da imigração.';
@@ -489,6 +495,9 @@
                     <div class="item-list"><span class="icon-x">✕</span> IMPOSTOS E BUROCRACIA</div>
                     <div class="item-list"><span class="icon-x">✕</span> INSEGURANÇA FAMILIAR</div>
                 `;
+                videoId = 'i_UsAmdz6T4';
+
+            // --- 3. COMUNICAÇÃO (LIBERDADE) ---
             } else {
                 headline.innerHTML = 'CANSADO DE <span class="red-text">DEPENDER DOS OUTROS?</span>';
                 sub.innerHTML = 'Chega de pagar intérprete ou travar no médico e na prefeitura. Seja independente de verdade.';
@@ -498,7 +507,11 @@
                     <div class="item-list"><span class="icon-x">✕</span> VERGONHA DE NÃO FALAR</div>
                     <div class="item-list"><span class="icon-x">✕</span> ISOLAMENTO SOCIAL</div>
                 `;
+                videoId = 'Jeg40Tu84lQ';
             }
+
+            // ATUALIZA O VÍDEO
+            salesVideo.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&controls=1&modestbranding=1';
         }
 
         function nextStep(stepNumber) {
