@@ -29,6 +29,7 @@
             --bg-body: #F7F9FC;
             --bg-card: #FFFFFF;
             --japan-red: #BC002D;
+            --blue-highlight: #004085; /* Novo Azul das Perguntas */
             --text-dark: #2C3E50;
             --text-gray: #555555;
             --green-zap: #25D366;
@@ -132,12 +133,13 @@
         .quiz-step { display: none; animation: fadeIn 0.5s ease; }
         .quiz-step.active { display: block; }
 
+        /* AQUI ESTÁ A MUDANÇA (AZUL E GRANDE) */
         .quiz-question {
-            font-size: 1.3rem;
+            font-size: 1.8rem; /* Bem maior */
             font-weight: 800;
             margin-bottom: 25px;
-            color: var(--text-dark);
-            line-height: 1.3;
+            color: var(--blue-highlight); /* Azul Forte */
+            line-height: 1.2;
         }
 
         .quiz-btn {
@@ -292,10 +294,11 @@
                 </video>
                 
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 1 de 4</p>
-                <h2 class="quiz-question">Você concorda que quem não fala Japonês trabalha mais e ganha menos?</h2>
                 
-                <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Sim, e quero mudar isso.</button>
-                <button class="quiz-btn" onclick="nextStep(2)"><span>B</span> Não, estou satisfeito assim.</button>
+                <h2 class="quiz-question">Você concorda que falar japonês traz muito mais segurança e oportunidades?</h2>
+                
+                <button class="quiz-btn" onclick="nextStep(2)"><span>A</span> Sim, com certeza.</button>
+                <button class="quiz-btn" onclick="nextStep(2)"><span>B</span> Não, acho que não muda nada.</button>
             </div>
 
             <div class="quiz-step" id="step-2">
