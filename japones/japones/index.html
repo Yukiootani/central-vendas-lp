@@ -26,12 +26,12 @@
     <style>
         /* --- ESTILO CLEAN JAPAN (BRANCO, VERMELHO E CINZA) --- */
         :root {
-            --bg-body: #F7F9FC; /* Fundo Claro (Gelo) */
-            --bg-card: #FFFFFF; /* Cartão Branco */
-            --japan-red: #BC002D; /* Vermelho da Bandeira */
-            --text-dark: #2C3E50; /* Cinza Escuro (Leitura fácil) */
+            --bg-body: #F7F9FC;
+            --bg-card: #FFFFFF;
+            --japan-red: #BC002D;
+            --text-dark: #2C3E50;
             --text-gray: #555555;
-            --green-zap: #25D366; /* Verde WhatsApp mantido */
+            --green-zap: #25D366;
             --border-light: #E0E0E0;
         }
 
@@ -231,7 +231,17 @@
         <div class="quiz-card">
             
             <div class="quiz-step active" id="step-1">
-                <video src="sora-video-s_694e01cf80b48191aebd620334fd41c6-2025-12-26.mov" class="quiz-img" autoplay loop muted playsinline></video>
+                <video 
+                    src="sora-video-s_694e01cf80b48191aebd620334fd41c6-2025-12-26.mov" 
+                    class="quiz-img" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                    webkit-playsinline
+                    oncanplay="this.play()" 
+                    onloadedmetadata="this.muted = true">
+                </video>
                 
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 1 de 4</p>
                 <h2 class="quiz-question">Você ainda lembra por que veio ao Japão?</h2>
@@ -242,7 +252,15 @@
             </div>
 
             <div class="quiz-step" id="step-2">
-                <video src="sora-video-s_694e190955b8819183d3f4e1efed1c39-2025-12-26.mov" class="quiz-img" autoplay loop muted playsinline></video>
+                <video 
+                    src="sora-video-s_694e190955b8819183d3f4e1efed1c39-2025-12-26.mov" 
+                    class="quiz-img" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                    webkit-playsinline>
+                </video>
                 
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 2 de 4</p>
                 <h2 class="quiz-question">O que o Japonês resolveria na sua vida hoje?</h2>
@@ -419,6 +437,18 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // --- FORÇAR AUTOPLAY NO VIDEO 1 (BUGFIX IPHONE) ---
+        window.addEventListener('load', function() {
+            // Tenta forçar o play no primeiro vídeo assim que carrega
+            const v1 = document.querySelector('#step-1 video');
+            if(v1) {
+                v1.muted = true; // Garante que está mudo
+                v1.play().catch(function(error) {
+                    console.log("Autoplay bloqueado pelo navegador:", error);
+                });
+            }
+        });
+
         // --- LÓGICA DE PERSONALIZAÇÃO ---
         let userProfile = 'visto';
 
