@@ -24,7 +24,7 @@
     src="https://www.facebook.com/tr?id=1057042062998950&ev=PageView&noscript=1"
     /></noscript>
     <style>
-        /* --- ESTILO CLEAN JAPAN (BRANCO, VERMELHO E CINZA) --- */
+        /* --- ESTILO CLEAN JAPAN --- */
         :root {
             --bg-body: #F7F9FC;
             --bg-card: #FFFFFF;
@@ -50,7 +50,50 @@
         .container { width: 90%; max-width: 600px; margin: 0 auto; padding: 30px 20px; }
         .text-center { text-align: center; }
 
-        /* --- ESTILOS DO QUIZ (CLEAN) --- */
+        /* --- TELA DE INÍCIO (OVERLAY) --- */
+        #start-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffffff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .start-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .start-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        .btn-start {
+            background: var(--japan-red);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 800;
+            padding: 20px 50px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(188, 0, 45, 0.4);
+            cursor: pointer;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* --- ESTILOS DO QUIZ --- */
         #landing-page { display: none; }
         
         #quiz-container {
@@ -61,6 +104,8 @@
             align-items: center;
             background: var(--bg-body);
             padding: 20px 0;
+            opacity: 0; /* Começa invisível até clicar no Iniciar */
+            transition: opacity 0.5s ease;
         }
 
         .quiz-card {
@@ -74,7 +119,6 @@
             text-align: center;
         }
 
-        /* Classe unificada para Imagem e Vídeo do Quiz */
         .quiz-img {
             width: 100%;
             height: 180px; 
@@ -82,7 +126,7 @@
             border-radius: 12px;
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background-color: #000; /* Fundo preto enquanto carrega */
+            background: #000;
         }
 
         .quiz-step { display: none; animation: fadeIn 0.5s ease; }
@@ -96,7 +140,6 @@
             line-height: 1.3;
         }
 
-        /* BOTÕES DO QUIZ (CLEAN) */
         .quiz-btn {
             background: #FAFAFA;
             border: 1px solid var(--border-light);
@@ -161,7 +204,7 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- ESTILOS DA LANDING PAGE (CLEAN) --- */
+        /* --- LANDING PAGE --- */
         h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 20px; color: var(--text-dark); text-transform: uppercase; letter-spacing: -1px; font-weight: 800; }
         h2 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 25px; line-height: 1.1; font-weight: 700; }
         h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 10px; }
@@ -187,8 +230,6 @@
             margin: 25px auto; animation: pulse 2s infinite; border: none; cursor: pointer;
         }
         .btn-whatsapp:hover { transform: scale(1.02); }
-
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
         .video-box {
             position: relative; max-width: 350px; aspect-ratio: 9/16; margin: 0 auto 30px auto;
@@ -228,6 +269,14 @@
 </head>
 <body>
 
+    <div id="start-overlay">
+        <h1 class="start-title">Japonês<br><span style="color:var(--japan-red);">Romanizado</span></h1>
+        <p class="start-subtitle">Método Exclusivo para Brasileiros</p>
+        <button class="btn-start" onclick="startQuiz()">INICIAR ANÁLISE</button>
+        <p style="margin-top:20px; font-size:0.8rem; color:#888;">Toque para começar</p>
+    </div>
+
+
     <div id="quiz-container">
         <div class="quiz-card">
             
@@ -236,11 +285,10 @@
                     id="video-step-1"
                     src="sora-video-s_694e01cf80b48191aebd620334fd41c6-2025-12-26.mov" 
                     class="quiz-img" 
-                    autoplay 
                     loop 
                     muted 
                     playsinline
-                    webkit-playsinline>
+                    poster="IMG_6555.jpeg">
                 </video>
                 
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 1 de 4</p>
@@ -259,7 +307,7 @@
                     loop 
                     muted 
                     playsinline
-                    webkit-playsinline>
+                    poster="IMG_6556.jpeg">
                 </video>
                 
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 2 de 4</p>
@@ -437,37 +485,22 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- SCRIPT DE FORÇA BRUTA PARA AUTOPLAY ---
-        function forceAutoplay() {
+        // --- FUNÇÃO PARA INICIAR O QUIZ (E DAR O PLAY MÁGICO) ---
+        function startQuiz() {
+            // Some com a tela de inicio
+            document.getElementById('start-overlay').style.display = 'none';
+            
+            // Mostra o quiz
+            const quiz = document.getElementById('quiz-container');
+            quiz.style.opacity = '1';
+
+            // DÁ PLAY NO VÍDEO 1 (Agora funciona porque teve clique!)
             const v1 = document.getElementById('video-step-1');
             if (v1) {
-                // Força mudo
                 v1.muted = true;
-                // Tenta tocar
-                var playPromise = v1.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        // Autoplay começou!
-                        console.log("Autoplay sucesso");
-                    })
-                    .catch(error => {
-                        // Se falhar, adiciona um gatilho no corpo todo para tocar no primeiro toque
-                        console.log("Autoplay falhou, aguardando toque...");
-                        document.body.addEventListener('click', function() {
-                            v1.play();
-                        }, { once: true });
-                        document.body.addEventListener('touchstart', function() {
-                            v1.play();
-                        }, { once: true });
-                    });
-                }
+                v1.play().catch(e => console.log("Erro ao tocar video:", e));
             }
         }
-
-        // Tenta rodar ao carregar
-        window.addEventListener('load', forceAutoplay);
-        // Tenta rodar de novo após 1 segundo (caso tenha carregado lento)
-        setTimeout(forceAutoplay, 1000);
 
         // --- LÓGICA DE PERSONALIZAÇÃO ---
         let userProfile = 'visto';
