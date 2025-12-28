@@ -82,6 +82,7 @@
             border-radius: 12px;
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #000; /* Fundo preto enquanto carrega */
         }
 
         .quiz-step { display: none; animation: fadeIn 0.5s ease; }
@@ -232,15 +233,14 @@
             
             <div class="quiz-step active" id="step-1">
                 <video 
+                    id="video-step-1"
                     src="sora-video-s_694e01cf80b48191aebd620334fd41c6-2025-12-26.mov" 
                     class="quiz-img" 
                     autoplay 
                     loop 
                     muted 
                     playsinline
-                    webkit-playsinline
-                    oncanplay="this.play()" 
-                    onloadedmetadata="this.muted = true">
+                    webkit-playsinline>
                 </video>
                 
                 <p style="color:var(--japan-red); font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Etapa 1 de 4</p>
@@ -437,17 +437,37 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- FORÇAR AUTOPLAY NO VIDEO 1 (BUGFIX IPHONE) ---
-        window.addEventListener('load', function() {
-            // Tenta forçar o play no primeiro vídeo assim que carrega
-            const v1 = document.querySelector('#step-1 video');
-            if(v1) {
-                v1.muted = true; // Garante que está mudo
-                v1.play().catch(function(error) {
-                    console.log("Autoplay bloqueado pelo navegador:", error);
-                });
+        // --- SCRIPT DE FORÇA BRUTA PARA AUTOPLAY ---
+        function forceAutoplay() {
+            const v1 = document.getElementById('video-step-1');
+            if (v1) {
+                // Força mudo
+                v1.muted = true;
+                // Tenta tocar
+                var playPromise = v1.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Autoplay começou!
+                        console.log("Autoplay sucesso");
+                    })
+                    .catch(error => {
+                        // Se falhar, adiciona um gatilho no corpo todo para tocar no primeiro toque
+                        console.log("Autoplay falhou, aguardando toque...");
+                        document.body.addEventListener('click', function() {
+                            v1.play();
+                        }, { once: true });
+                        document.body.addEventListener('touchstart', function() {
+                            v1.play();
+                        }, { once: true });
+                    });
+                }
             }
-        });
+        }
+
+        // Tenta rodar ao carregar
+        window.addEventListener('load', forceAutoplay);
+        // Tenta rodar de novo após 1 segundo (caso tenha carregado lento)
+        setTimeout(forceAutoplay, 1000);
 
         // --- LÓGICA DE PERSONALIZAÇÃO ---
         let userProfile = 'visto';
